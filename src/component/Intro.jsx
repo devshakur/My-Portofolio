@@ -56,7 +56,11 @@ function Intro() {
               marginTop: "5vh",
               letterSpacing: "2px",
               fontSize: "7vw",
+              "@media (min-width: 1024px)": {
+                fontSize: "6vh",
+              },
             }}
+
           >
             UI/UX DEVELOPER
             <span>
@@ -67,7 +71,7 @@ function Intro() {
               />
             </span>
           </Typography>
-          <p className="text-[#ffffff] ml-4 md:text-[25px]">
+          <p className="text-[#ffffff] ml-4 md:text-[25px] lg:text-[18px]">
             As a web developer, I am passionate about creating engaging and
             user-friendly websites that provide seamless and interactive online
             experiences. With a strong foundation in programming languages such
@@ -98,46 +102,46 @@ function Intro() {
             Personal Information
           </Typography>
           <p className="text-white mb-3 ml-3">
-            <span className="border-b-2 border-blue-500 ml-2 md:text-[2rem]">
+            <span className="border-b-2 border-blue-500 ml-2 md:text-[2rem] lg:text-[18px]">
               {" "}
               Name:
             </span>
-            <span className="ml-2 md:text-[2rem]">Dauda Abdulshakur</span>
+            <span className="ml-2 md:text-[2rem] lg:text-[18px]">Dauda Abdulshakur</span>
           </p>
           <p className="text-white mb-3 ml-3">
-            <span className="border-b-2 border-blue-500 ml-2 md:text-[2rem]">
+            <span className="border-b-2 border-blue-500 ml-2 md:text-[2rem] lg:text-[18px]">
               {" "}
               Residence:
             </span>
-            <span className="ml-2 md:text-[2rem]">Abuja, Nigeria</span>
+            <span className="ml-2 md:text-[2rem] lg:text-[18px]">Abuja, Nigeria</span>
           </p>
           <p className="text-white mb-3 ml-3">
-            <span className="border-b-2 border-blue-500 ml-2 md:text-[2rem]">
+            <span className="border-b-2 border-blue-500 ml-2 md:text-[2rem] lg:text-[18px]">
               {" "}
               Address:
             </span>
-            <span className="ml-2 md:text-[2rem]">Zone 1, Dutsen Alhaji</span>
+            <span className="ml-2 md:text-[2rem] lg:text-[18px]">Zone 1, Dutsen Alhaji</span>
           </p>
           <p className="text-white mb-3 ml-3">
-            <span className="border-b-2 border-blue-500 ml-2 md:text-[2rem]">
+            <span className="border-b-2 border-blue-500 ml-2 md:text-[2rem] lg:text-[18px]">
               {" "}
               Email:
             </span>
-            <span className="ml-2 md:text-[2rem]">devshakur@gmail.com</span>
+            <span className="ml-2 md:text-[2rem] lg:text-[18px]">devshakur@gmail.com</span>
           </p>
           <p className="text-white mb-3 ml-3">
-            <span className="border-b-2 border-blue-500 ml-2 md:text-[2rem]">
+            <span className="border-b-2 border-blue-500 ml-2 md:text-[2rem] lg:text-[18px]">
               {" "}
               Phone:
             </span>
-            <span className="ml-2 md:text-[2rem]">(+234) 8129378618</span>
+            <span className="ml-2 md:text-[2rem] lg:text-[18px]">(+234) 8129378618</span>
           </p>
           <p className="text-white ml-3">
-            <span className="border-b-2 border-blue-500 ml-2 md:text-[2rem]">
+            <span className="border-b-2 border-blue-500 ml-2 md:text-[2rem] lg:text-[18px]">
               {" "}
               Freelance:
             </span>
-            <span className="ml-2 md:text-[2rem]">Available</span>
+            <span className="ml-2 md:text-[2rem] lg:text-[18px]">Available</span>
           </p>
         </div>
         <Button

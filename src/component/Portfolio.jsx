@@ -43,7 +43,7 @@ function Portfolio() {
         </div>
         <article>
         </article>
-        <section className="xl:grid xl:grid-cols-2">
+        <section className="lg:grid lg:grid-cols-2">
           <Link className="mt-9 h-[50vh] flex justify-center items-center rounded-[30px] m-6">
             <img src={mock1} className="w-auto h-[46vh] rounded-[1rem]" />
           </Link>

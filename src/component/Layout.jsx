@@ -10,7 +10,7 @@ function Layout({ children }) {
       <Box sx={{ height: "100vh" }}>
         <header className="w-full h-[8vh] bg-black ">
           <div className="w-[90%] h-[8vh] flex justify-between items-center float-right">
-            <div className="text-white text-[5vw] md:ml-9 ml-1 lg:text-[4vh] lg:ml-[25vw]">
+            <div className="text-white text-[5vw] md:ml-9 ml-1 lg:text-[4vh] lg:ml-[13vw]">
               ABDULSHAKUR DAUDA
             </div>
             <div className="text-white mr-2 border-l-4 p-3 border-gray-800">

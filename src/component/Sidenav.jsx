@@ -134,7 +134,9 @@ function Sidenav() {
           </div>
         </ul> 
         <div className="resize flex flex-col h-[36vh] justify-end md:ml-[1rem] xl:justify-center xl:mt-8">
-          <ul className="flex flex-row ml-6 md:ml-[5rem]  text-gray-500 gap-2">
+          <ul className="flex flex-row ml-6 md:ml-[5rem]  text-gray-500 gap-2 @media (min-width: 414){
+            ml-[10vw]
+          }">
             <li>
               <FacebookIcon
                 fontSize="small"
