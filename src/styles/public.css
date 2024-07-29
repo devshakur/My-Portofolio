@@ -1,0 +1,36 @@
+body {
+  scroll-behavior: smooth;
+}
+
+.home {
+  background-image: url(../assest/images/laptop-bg.webp);
+  background-size: cover;
+  background-position: top;
+  overflow-y: clip;
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.9;
+  overflow: hidden;
+}
+@media (min-width: 388px) {
+  .resize {
+    height: 39vh;
+  }
+}
+
+@media (min-width: 767px) {
+  .home {
+    background-image: url(../assest/images/tech-img.jpg);
+    background-size: cover;
+    background-position: top right;
+    overflow-y: clip;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.9;
+    overflow: hidden;
+  }
+}
