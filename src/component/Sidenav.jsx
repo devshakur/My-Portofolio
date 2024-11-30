@@ -36,13 +36,14 @@ export const openSideNav = (e) => {
     switchClass.remove("hidden");
   }
 };
+
 function Sidenav() {
   return (
     <AnimatedPage>
       <div
         ref={Sidenav}
         id="sidebar"
-        className="nav hidden border-r-2 h-screen border-gray-500 fixed top-0 bottom-0 z-10 w-[85%] bg-gray-900 overflow-y-auto" // Added overflow-y-auto
+        className="nav hidden border-r-2 h-screen border-gray-500 fixed top-0 bottom-0 z-10 w-[85%] bg-gray-900 overflow-y-auto"
       >
         <div className="bg-gray-300">
           <img
@@ -55,8 +56,8 @@ function Sidenav() {
           </div>
         </div>
 
-        <ul className="text-gray-600 flex flex-col items-end gap-3 mt-2 overflow-hidden">
-          <div className="w-full flex flex-row items-center justify-center p-1 pb-1 gap-2 border-b border-black">
+        <ul className="text-gray-600 flex flex-col items-start gap-3 mt-2 overflow-hidden">
+          <div className="w-full flex flex-row items-center justify-start p-1 pb-1 gap-2 border-b border-black">
             <span className="text-gray-500">
               <HomeIcon
                 sx={{
@@ -72,7 +73,7 @@ function Sidenav() {
               Home
             </Link>
           </div>
-          <div className="w-full flex flex-row items-center justify-center p-1 pb-1 gap-2 border-b border-black ml-6 md:ml-[3rem]">
+          <div className="w-full flex flex-row items-center justify-start p-1 pb-1 gap-2 border-b border-black">
             <span className="text-gray-500">
               <PersonOutlinedIcon
                 sx={{
@@ -88,7 +89,7 @@ function Sidenav() {
               About Me
             </Link>
           </div>
-          <div className="w-full flex flex-row items-center justify-center p-1 pb-1 gap-2 border-b border-black ml-4 md:ml-[2rem]">
+          <div className="w-full flex flex-row items-center justify-start p-1 pb-1 gap-2 border-b border-black">
             <span className="text-gray-500">
               <BallotIcon
                 sx={{
@@ -104,7 +105,7 @@ function Sidenav() {
               Resume
             </Link>
           </div>
-          <div className="w-full flex flex-row items-center justify-center p-1 pb-1 gap-2 border-b border-black ml-4 md:ml-[2rem]">
+          <div className="w-full flex flex-row items-center justify-start p-1 pb-1 gap-2 border-b border-black">
             <span className="text-gray-500">
               <CoPresentIcon
                 sx={{
@@ -121,7 +122,7 @@ function Sidenav() {
             </Link>
           </div>
 
-          <div className="w-full flex flex-row items-center justify-center p-1 pb-1 gap-2 border-b border-black ml-[3vw] md:ml-[2rem]">
+          <div className="w-full flex flex-row items-center justify-start p-1 pb-1 gap-2 border-b border-black">
             <span className="text-gray-500">
               <MailOutlinedIcon
                 sx={{
@@ -139,9 +140,7 @@ function Sidenav() {
           </div>
         </ul>
         <div className="resize flex flex-col h-[36vh] justify-end md:ml-[1rem] xl:justify-center xl:mt-8">
-          <ul className="flex flex-row ml-6 md:ml-[5rem]  text-gray-500 gap-2 @media (min-width: 414){
-            ml-[10vw]
-          }">
+          <ul className="flex flex-row ml-6 md:ml-[5rem] text-gray-500 gap-2">
             <li>
               <FacebookIcon
                 fontSize="small"
@@ -163,7 +162,6 @@ function Sidenav() {
               />
             </li>
             <li>
-              {" "}
               <LinkedInIcon
                 fontSize="small"
                 sx={{
@@ -207,4 +205,5 @@ function Sidenav() {
     </AnimatedPage>
   );
 }
+
 export default Sidenav;
