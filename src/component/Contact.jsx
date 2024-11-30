@@ -183,7 +183,7 @@ function Contact() {
                 },
               }}
             >
-              example@ example.com
+              devshakur23@gmail.com
             </Typography>
           </div>
           <div className="flex flex-col">

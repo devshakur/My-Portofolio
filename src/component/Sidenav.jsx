@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import profilePics from "../assest/images/profile.png";
+import profilePics from "../assest/images/my-picture.jpg";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
@@ -42,15 +42,20 @@ function Sidenav() {
       <div
         ref={Sidenav}
         id="sidebar"
-        className="nav hidden border-r-2 h-screen border-gray-500 fixed top-0 bottom-0  z-10 w-1/2 bg-gray-900 overflow-y-clip"
+        className="nav hidden border-r-2 h-screen border-gray-500 fixed top-0 bottom-0 z-10 w-[85%] bg-gray-900 overflow-y-auto" // Added overflow-y-auto
       >
         <div className="bg-gray-300">
-          <img className="h-[20vh] mt-0" src={profilePics} alt="profile" />
-          <div className=" bg-blue-500  text-white p-3 font-bold flex items-center justify-center text-[13px] md:text-[2.4vh]">
+          <img
+            className="h-[55vh] md:h-[100%] w-[100%] object-center mt-5 object-cover"
+            src={profilePics}
+            alt="profile"
+          />
+          <div className="bg-blue-500 text-white p-3 font-bold flex items-center justify-center text-[13px] md:text-[2.4vh]">
             ABDULSHAKUR DAUDA
           </div>
         </div>
-        <ul className="text-gray-600 flex flex-col items-center gap-3 mt-2 overflow-hidden">
+
+        <ul className="text-gray-600 flex flex-col items-end gap-3 mt-2 overflow-hidden">
           <div className="w-full flex flex-row items-center justify-center p-1 pb-1 gap-2 border-b border-black">
             <span className="text-gray-500">
               <HomeIcon
@@ -132,7 +137,7 @@ function Sidenav() {
               Contact
             </Link>
           </div>
-        </ul> 
+        </ul>
         <div className="resize flex flex-col h-[36vh] justify-end md:ml-[1rem] xl:justify-center xl:mt-8">
           <ul className="flex flex-row ml-6 md:ml-[5rem]  text-gray-500 gap-2 @media (min-width: 414){
             ml-[10vw]
@@ -202,5 +207,4 @@ function Sidenav() {
     </AnimatedPage>
   );
 }
-
 export default Sidenav;

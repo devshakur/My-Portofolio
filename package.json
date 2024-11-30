@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite ",
     "build": "vite build",
     "start": "vite --port 3000 --host --open",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",

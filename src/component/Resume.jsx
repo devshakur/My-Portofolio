@@ -52,6 +52,24 @@ function Resume() {
             WEB DEVELOPER
           </h2>
           <p className="text-[#00BFFF] mb-3 md:text-[2vh]">
+            Vehance Technologies
+          </p>
+          <p className="text-white md:text-[1.8vh]">
+            At Vehance Technologies, we specialize in building cutting-edge websites and mobile applications for businesses of all sizes. Our team focuses on delivering custom, responsive websites that provide an exceptional user experience, designed to help businesses grow and establish a powerful online presence.
+
+            In addition to web development, we also create VTU (Virtual Top-Up) apps, enabling businesses to offer seamless mobile recharge services. These applications allow users to top-up mobile phones, pay bills, and access other digital services through integrated payment systems, making it easier for businesses to engage customers and streamline financial transactions.
+
+            With a commitment to quality, innovation, and customer satisfaction, we help businesses leverage technology to enhance their digital operations and stay ahead of the competition.
+          </p>
+        </div>
+        <div className="ml-5 border-l-4 p-6 border-[#00BFFF]">
+          <h2
+            className="text-white
+         font-bold md:text-[2.5vh]"
+          >
+            WEB DEVELOPER
+          </h2>
+          <p className="text-[#00BFFF] mb-3 md:text-[2vh]">
             United Bank of Africa(UBA)Clone.
           </p>
           <p className="text-white md:text-[1.8vh]">
@@ -148,7 +166,7 @@ function Resume() {
           </h2>
         </div>
         <div className="ml-4">
-          <h5 className="text-white mb-[-12px] md:text-[2rem]">HTML</h5>
+          <h5 className="text-white mb-[-12px] md:text-[2rem]">Html</h5>
           <Box
             sx={{
               width: 300,
@@ -167,7 +185,7 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
-          <h5 className="text-white mb-[-12px] md:text-[2rem]">CSS</h5>
+          <h5 className="text-white mb-[-12px] md:text-[2rem]">Css</h5>
           <Box
             sx={{
               width: 300,
@@ -186,7 +204,26 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
-          <h5 className="text-white mb-[-12px] md:text-[2rem]">JAVASCRIPT</h5>
+          <h5 className="text-white mb-[-12px] md:text-[2rem]">JavaScript</h5>
+          <Box
+            sx={{
+              width: 300,
+              "@media (min-width: 768px)": {
+                width: 750,
+              },
+            }}
+          >
+            <Slider
+              data-aos="fade-top"
+              aria-label="Temperature"
+              defaultValue={90}
+              disabled
+              valueLabelDisplay="on"
+              // getAriaValueText={valuetext}
+              style={{ color: "purple" }}
+            />
+          </Box>
+          <h5 className="text-white mb-[-12px] md:text-[2rem]">Figma</h5>
           <Box
             sx={{
               width: 300,
@@ -224,7 +261,7 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
-          <h5 className="text-white mb-[-12px] md:text-[2rem]">REACT.JS</h5>
+          <h5 className="text-white mb-[-12px] md:text-[2rem]">React.Js</h5>
           <Box
             sx={{
               width: 300,
@@ -243,7 +280,7 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
-          <h5 className="text-white mb-[-12px] md:text-[2rem]">TYPESCRIPT</h5>
+          <h5 className="text-white mb-[-12px] md:text-[2rem]">TypeScript</h5>
           <Box
             sx={{
               width: 300,
@@ -256,6 +293,63 @@ function Resume() {
               data-aos="fade-right"
               aria-label="Temperature"
               defaultValue={85}
+              disabled
+              valueLabelDisplay="on"
+              // getAriaValueText={valuetext}
+              style={{ color: "purple" }}
+            />
+          </Box>
+          <h5 className="text-white mb-[-12px] md:text-[2rem]">React Native</h5>
+          <Box
+            sx={{
+              width: 300,
+              "@media (min-width: 768px)": {
+                width: 750,
+              },
+            }}
+          >
+            <Slider
+              data-aos="fade-right"
+              aria-label="Temperature"
+              defaultValue={87}
+              disabled
+              valueLabelDisplay="on"
+              // getAriaValueText={valuetext}
+              style={{ color: "purple" }}
+            />
+          </Box>
+          <h5 className="text-white mb-[-12px] md:text-[2rem]">iOS & Andriod Development</h5>
+          <Box
+            sx={{
+              width: 300,
+              "@media (min-width: 768px)": {
+                width: 750,
+              },
+            }}
+          >
+            <Slider
+              data-aos="fade-right"
+              aria-label="Temperature"
+              defaultValue={87}
+              disabled
+              valueLabelDisplay="on"
+              // getAriaValueText={valuetext}
+              style={{ color: "purple" }}
+            />
+          </Box>
+          <h5 className="text-white mb-[-12px] md:text-[2rem]">Expo</h5>
+          <Box
+            sx={{
+              width: 300,
+              "@media (min-width: 768px)": {
+                width: 750,
+              },
+            }}
+          >
+            <Slider
+              data-aos="fade-right"
+              aria-label="Temperature"
+              defaultValue={87}
               disabled
               valueLabelDisplay="on"
               // getAriaValueText={valuetext}
@@ -315,6 +409,25 @@ function Resume() {
               data-aos="fade-right"
               aria-label="Temperature"
               defaultValue={95}
+              disabled
+              valueLabelDisplay="on"
+              // getAriaValueText={valuetext}
+              style={{ color: "purple" }}
+            />
+          </Box>
+          <h5 className="text-white mb-[-12px] md:text-[2rem]">Restful Api & Ajax</h5>
+          <Box
+            sx={{
+              width: 300,
+              "@media (min-width: 768px)": {
+                width: 750,
+              },
+            }}
+          >
+            <Slider
+              data-aos="fade-right"
+              aria-label="Temperature"
+              defaultValue={90}
               disabled
               valueLabelDisplay="on"
               // getAriaValueText={valuetext}

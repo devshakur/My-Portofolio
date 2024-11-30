@@ -3,9 +3,9 @@ import React, { useState, useEffect } from "react";
 
 const Typewriter = () => {
   const keywords = [
-    "Frontend Developer...",
-    "Web Developer...",
-    "UI/UX Developer...",
+    "Frontend Engineer...",
+    "Web Designer...",
+    "Mobile Developer...",
   ];
   const [index, setIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");

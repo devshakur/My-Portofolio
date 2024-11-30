@@ -136,6 +136,13 @@ function Intro() {
             </span>
             <span className="ml-2 md:text-[2rem] lg:text-[18px]">(+234) 8129378618</span>
           </p>
+          <p className="text-white mb-3 ml-3">
+            <span className="border-b-2 border-blue-500 ml-2 md:text-[2rem] lg:text-[18px]">
+              {" "}
+              GitHub:
+            </span>
+            <span className="ml-2 md:text-[2rem] lg:text-[18px]">https://github.com/devshakur</span>
+          </p>
           <p className="text-white ml-3">
             <span className="border-b-2 border-blue-500 ml-2 md:text-[2rem] lg:text-[18px]">
               {" "}
