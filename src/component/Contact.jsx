@@ -24,7 +24,7 @@ function Contact() {
       theme: "light",
     });
 
-  const [changeVariant, setchangeVariant] = useState("outlined");
+  const [changeVariant, setchangeVariant] = useState("contained");
   const changeButtonVariant = () => {
     {
       changeVariant === "contained"
@@ -69,167 +69,127 @@ function Contact() {
           />
         </div>
         <div className="flex justify-center p-5">
-          <h2 className="border-b-2 border-[#057496] p-1 text-2xl text-white md:text-[2rem]">
+          <h2 className="border-b-2 border-[#057496] p-1 text-2xl text-[#fff] md:text-[2rem]">
             LET'S TALK
           </h2>
         </div>
+        <div className="lg:flex lg:mx-12">
+          {
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="flex flex-col m-5 w-[90vw] gap-8 "
+            >
+              <input type="text" className="rounded-lg bg-[#232A31] text-white py-4 border-none focus:border-none focus:outline-none px-4 shadow-lg" autoComplete="off" id="outlined-basic"
+                label="Name"
+                required
+                placeholder="Name"
+                name="from_name" />
 
-        {
-          <form
-            ref={form}
-            onSubmit={sendEmail}
-            className="flex flex-col m-5 w-[90vw] gap-8 "
-          >
-            <TextField
-              sx={{
-                "& .MuiInputBase-input": {
-                  color: "white",
-                },
-                "& .MuiInputLabel-root": {
-                  color: "white",
-                },
-                "& .MuiOutlinedInput-root": {
-                  "& fieldset": {
-                    borderColor: "white",
-                  },
-                },
-                "@media (min-width: 1280px)": {
-                  marginBottom: "5px",
-                },
-              }}
-              id="outlined-basic"
-              label="Name"
-              required
-              name="from_name"
-              type="text"
-              variant="outlined"
-            />
-            <TextField
-              sx={{
-                "& .MuiInputBase-input": {
-                  color: "white",
-                },
-                "& .MuiInputLabel-root": {
-                  color: "white",
-                },
-                "& .MuiOutlinedInput-root": {
-                  "& fieldset": {
-                    borderColor: "white",
-                  },
-                },
-                "@media (min-width: 1280px)": {
-                  padding: "5px",
-                },
-              }}
-              id="outlined-basic"
-              type="email"
-              label="Email"
-              required
-              name="to_email"
-              variant="outlined"
-            />
-            <TextField
-              sx={{
-                "& .MuiInputBase-input": {
-                  color: "white",
-                },
-                "& .MuiInputLabel-root": {
-                  color: "white",
-                },
-                "& .MuiOutlinedInput-root": {
-                  "& fieldset": {
-                    borderColor: "white",
-                  },
-                },
-              }}
-              id="outlined-multiline-static"
-              label="Message"
-              name="message"
-              required
-              multiline
-              rows={4}
-            />
-            <Button
-              onClick={changeButtonVariant}
-              type="submit"
-              variant={changeVariant}
-              sx={{
-                height: "7vh",
-                "@media (min-width: 768px)": {
-                  fontSize: "2.6vh",
-                },
-              }}
-            >
-              SEND Message
-            </Button>
-            <ToastContainer />
-          </form>
-        }
+              <input id="outlined-basic"
+                className="rounded-lg bg-[#232A31] text-white py-4 border-none focus:border-none focus:outline-none px-4 shadow-lg" autoComplete="off"
+                type="email"
+                label="Email"
+                required
+                name="to_email"
+                placeholder="Email"
+                variant="outlined" />
 
-        <div className="flex justify-center flex-col gap-8 items-center w-full mt-8 text-[#057496] lg:gap-12">
-          <div className="flex flex-col">
-            <TelegramIcon
-              sx={{ marginLeft: "16vw", marginBottom: "1vw", fontSize: "6vh" }}
-            />
-            <Typography
-              variant="p"
-              className="text-white"
-              sx={{
-                "@media (min-width: 768px)": {
-                  marginLeft: "7vw",
-                },
-                "@media (min-width: 1024px)": {
-                  marginLeft: "11vw",
-                },
-              }}
-            >
-              devshakur23@gmail.com
-            </Typography>
-          </div>
-          <div className="flex flex-col">
-            <LocationOnIcon
-              sx={{ marginLeft: "16vw", marginBottom: "1vw", fontSize: "6vh" }}
-            />
-            <Typography
-              variant="p"
-              className="text-white"
-              sx={{
-                "@media (min-width: 768px)": {
-                  marginLeft: "7vw",
-                },
-                "@media (min-width: 1024px)": {
-                  marginLeft: "11vw",
-                },
-              }}
-            >
-              279,Dutse,Abuja,Nigeria
-            </Typography>
-          </div>
-          <div className="flex flex-col">
-            <PhoneEnabledIcon
-              sx={{
-                marginLeft: "12vw",
-                marginBottom: "1vw",
-                fontSize: "6vh",
-                "@media (min-width: 1024px)": {
-                  marginLeft: "14vw",
-                },
-              }}
-            />
-            <Typography
-              variant="p"
-              className="text-white"
-              sx={{
-                "@media (min-width: 768px)": {
-                  marginLeft: "7vw",
-                },
-                "@media (min-width: 1024px)": {
-                  marginLeft: "11vw",
-                },
-              }}
-            >
-              (+234)81 293 786 18
-            </Typography>
+              <textarea
+                id="outlined-multiline-static"
+                className="rounded-lg bg-[#232A31] text-white border-none focus:border-none focus:outline-none px-4 py-3 shadow-lg w-full" autoComplete="off"
+                label="Message"
+                name="message"
+                required
+                placeholder="Message..."
+                rows="4"
+              />
+              <div className="flex justify-center">
+                <Button
+                  onClick={changeButtonVariant}
+                  type="submit"
+                  variant={changeVariant}
+                  sx={{
+                    height: "7vh",
+                    width: "15rem",
+                    "@media (min-width: 768px)": {
+                      fontSize: "2.6vh",
+                    },
+                  }}
+                >
+                  Send
+                </Button>
+
+              </div>
+              <ToastContainer />
+            </form>
+          }
+
+          <div className="flex justify-center flex-col gap-8 items-center w-full mt-8 text-[#057496] lg:mt-[-6rem] lg:gap-12">
+            <div className="flex flex-col">
+              <TelegramIcon
+                sx={{ marginLeft: "16vw", marginBottom: "1vw", fontSize: "6vh" }}
+              />
+              <Typography
+                variant="p"
+                className="text-white"
+                sx={{
+                  "@media (min-width: 768px)": {
+                    marginLeft: "7vw",
+                  },
+                  "@media (min-width: 1024px)": {
+                    marginLeft: "11vw",
+                  },
+                }}
+              >
+                devshakur23@gmail.com
+              </Typography>
+            </div>
+            <div className="flex flex-col">
+              <LocationOnIcon
+                sx={{ marginLeft: "16vw", marginBottom: "1vw", fontSize: "6vh" }}
+              />
+              <Typography
+                variant="p"
+                className="text-white"
+                sx={{
+                  "@media (min-width: 768px)": {
+                    marginLeft: "7vw",
+                  },
+                  "@media (min-width: 1024px)": {
+                    marginLeft: "11vw",
+                  },
+                }}
+              >
+                279,Dutse,Abuja,Nigeria
+              </Typography>
+            </div>
+            <div className="flex flex-col">
+              <PhoneEnabledIcon
+                sx={{
+                  marginLeft: "12vw",
+                  marginBottom: "1vw",
+                  fontSize: "6vh",
+                  "@media (min-width: 1024px)": {
+                    marginLeft: "14vw",
+                  },
+                }}
+              />
+              <Typography
+                variant="p"
+                className="text-white"
+                sx={{
+                  "@media (min-width: 768px)": {
+                    marginLeft: "7vw",
+                  },
+                  "@media (min-width: 1024px)": {
+                    marginLeft: "11vw",
+                  },
+                }}
+              >
+                (+234)81 293 786 18
+              </Typography>
+            </div>
           </div>
         </div>
       </div>

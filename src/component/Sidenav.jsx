@@ -43,20 +43,20 @@ function Sidenav() {
       <div
         ref={Sidenav}
         id="sidebar"
-        className="nav hidden border-r-2 h-screen border-gray-500 fixed top-0 bottom-0 z-10 w-[85%] bg-gray-900 overflow-y-auto"
+        className="nav hidden border-r-2 h-screen border-gray-500 fixed top-0 bottom-0 z-10 w-[100%] lg:w-[60%] xl:w-[30%] bg-gray-900 overflow-y-auto"
       >
         <div className="bg-gray-300">
           <img
-            className="h-[55vh] md:h-[100%] w-[100%] object-center mt-5 object-cover"
+            className="md:h-[100%] w-[100%] object-center pl-3 mt-5 object-cover"
             src={profilePics}
             alt="profile"
           />
-          <div className="bg-blue-500 text-white p-3 font-bold flex items-center justify-center text-[13px] md:text-[2.4vh]">
+          <div className="bg-blue-500 font-sans text-white p-3 font-bold flex items-center justify-center text-[13px] md:text-[2.4vh]">
             ABDULSHAKUR DAUDA
           </div>
         </div>
 
-        <ul className="text-gray-600 flex flex-col items-start gap-3 mt-2 overflow-hidden">
+        <ul className="text-gray-600 flex flex-col items-start gap-3 lg:gap-8 mt-2 overflow-hidden">
           <div className="w-full flex flex-row items-center justify-start p-1 pb-1 gap-2 border-b border-black">
             <span className="text-gray-500">
               <HomeIcon
@@ -139,7 +139,7 @@ function Sidenav() {
             </Link>
           </div>
         </ul>
-        <div className="resize flex flex-col h-[36vh] justify-end md:ml-[1rem] xl:justify-center xl:mt-8">
+        <div className="resize flex flex-col justify-end mb-5 mt-5 items-center">
           <ul className="flex flex-row ml-6 md:ml-[5rem] text-gray-500 gap-2">
             <li>
               <FacebookIcon
@@ -192,13 +192,13 @@ function Sidenav() {
               />
             </li>
           </ul>
-          <div>
+          <div className="flex">
             <p className="ml-[11vw] text-[12px] text-gray-500 md:text-[2vh]">
-              2024 <CopyrightIcon fontSize="small" /> devshakur
-            </p>
-            <p className="ml-[13vw] mt-1 text-[10px] text-gray-500 md:text-[1rem]">
+              2024 <CopyrightIcon fontSize="small" /> devshakur  <span className="mt-1 text-[10px] text-gray-500 md:text-[1rem]">
               All Right Reserved
+            </span>
             </p>
+           
           </div>
         </div>
       </div>

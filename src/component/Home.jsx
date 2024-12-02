@@ -3,11 +3,13 @@ import "../styles/public.css";
 import { Typography } from "@mui/material";
 import Typewriter from "./Typewriter";
 import AnimatedPage from "./AnimatedPage";
+
 function Home() {
   return (
     <AnimatedPage>
-      <div className="home opacity-5">
-        <div className="w-screen h-1/2 flex flex-col justify-end items-center">
+      <div className="home opacity-5 relative">
+        <div className="w-screen h-[100%] flex flex-col justify-center items-center backdrop-blur-[-70px] bg-black/50">
+          {/* This adds the backdrop blur and semi-transparent black background */}
           <Typography
             sx={{
               "@media (min-width: 768px)": {
@@ -26,12 +28,23 @@ function Home() {
               "@media (min-width: 768px)": {
                 color: "white",
               },
+              "@media (min-width: 768px)": {
+                fontSize: "5rem",
+              },
             }}
             className="text-blue-300"
           >
             ABDULSHAKUR
           </Typography>
           <Typewriter />
+          <div className="my-10">
+            <a
+              href="contact"
+              className="border-2 border-[yellow] rounded-2xl p-3 px-8  text-[yellow] font-sans"
+            >
+              Hire Me
+            </a>
+          </div>
         </div>
       </div>
     </AnimatedPage>

@@ -44,12 +44,14 @@ function Resume() {
             PROJECTS
           </h2>
         </div>
-        <div className="ml-5 border-l-4 p-6 border-[#00BFFF]">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-3">
+        <div className="ml-5 border-l-4 p-6 border-[#00BFFF] lg:border-none lg:bg-[#111418] lg:rounded-xl lg:shadow-lg">
+          <span className="bg-red-700 text-white px-4 py-1 rounded-xl">current</span>
           <h2
             className="text-white
-         font-bold md:text-[2.5vh]"
+         font-bold md:text-[2.5vh] mt-5"
           >
-            WEB DEVELOPER
+            Frontend Developer
           </h2>
           <p className="text-[#00BFFF] mb-3 md:text-[2vh]">
             Vehance Technologies
@@ -62,10 +64,11 @@ function Resume() {
             With a commitment to quality, innovation, and customer satisfaction, we help businesses leverage technology to enhance their digital operations and stay ahead of the competition.
           </p>
         </div>
-        <div className="ml-5 border-l-4 p-6 border-[#00BFFF]">
+        <div className="ml-5 border-l-4 p-6 border-[#00BFFF] lg:border-none lg:bg-[#111418] lg:rounded-xl lg:shadow-lg">
+          <span className="bg-red-700 text-white px-4 py-1 rounded-xl text-sm">Aug 2022</span>
           <h2
             className="text-white
-         font-bold md:text-[2.5vh]"
+         font-bold md:text-[2.5vh] mt-5"
           >
             WEB DEVELOPER
           </h2>
@@ -83,10 +86,11 @@ function Resume() {
           </p>
         </div>
 
-        <div className="ml-5 border-l-4 p-6 mt-3 border-[#00BFFF]">
+        <div className="ml-5 border-l-4 p-6 border-[#00BFFF] lg:border-none lg:bg-[#111418] lg:rounded-xl lg:shadow-lg">
+          <span className="bg-red-700 text-white px-4 py-1 rounded-xl text-sm">March 2023</span>
           <h2
             className="text-white
-         font-bold md:text-[2.5vh]"
+         font-bold md:text-[2.5vh] mt-5"
           >
             WEB DEVELOPER
           </h2>
@@ -100,10 +104,11 @@ function Resume() {
             scheduling.Using React, EmotionJs, and Vite.
           </p>
         </div>
-        <div className="ml-5 border-l-4 p-6 mt-3 border-[#00BFFF]">
+        <div className="ml-5 border-l-4 p-6 border-[#00BFFF] lg:border-none lg:bg-[#111418] lg:rounded-xl lg:shadow-lg">
+          <span className="bg-red-700 text-white px-4 py-1 rounded-xl text-sm">Aug 2024</span>
           <h2
             className="text-white
-         font-bold md:text-[2.5vh]"
+         font-bold md:text-[2.5vh] mt-5"
           >
             WEB DEVELOPER
           </h2>
@@ -117,10 +122,11 @@ function Resume() {
             interface.
           </p>
         </div>
-        <div className="ml-5 border-l-4 p-6 mt-3 border-[#00BFFF]">
+        <div className="ml-5 border-l-4 p-6 border-[#00BFFF] lg:border-none lg:bg-[#111418] lg:rounded-xl lg:shadow-lg">
+          <span className="bg-red-700 text-white px-4 py-1 rounded-xl text-sm">May 2023</span>
           <h2
             className="text-white
-         font-bold md:text-[2.5vh]"
+         font-bold md:text-[2.5vh] mt-5"
           >
             WEB DEVELOPER
           </h2>
@@ -132,12 +138,14 @@ function Resume() {
             satisfy customers desires
           </p>
         </div>
+        </div>
         <div className="flex justify-center p-5">
           <h2 className="border-b-2 border-[#00BFFF] p-1 text-3xl text-white">
             EDUCATION
           </h2>
         </div>
-        <div className="ml-5 border-l-4 p-6 mt-3 border-blue-300">
+        <div className="lg:flex">
+        <div className="ml-5 border-l-4 p-6 mt-3 border-blue-300 lg:bg-[#111418] lg:border-none lg:rounded-xl lg:shadow-lg">
           <h3 className="text-[#00BFFF] font-bold text-[20px]">
             DEVSNET COHORT
           </h3>
@@ -148,8 +156,8 @@ function Resume() {
           </p>
         </div>
 
-        <div className="ml-5 border-l-4 p-6 mt-3 border-green-300">
-          <h3 className="text-[#00BFFF] font-bold text-[20px]">
+        <div className="ml-5 border-l-4 p-6 mt-3 border-green-300 lg:bg-[#111418] lg:border-none lg:rounded-xl lg:shadow-lg">
+          <h3 className="text-[#00BFFF] font-bold text-[20px] ">
             Bayero University Kano (BUK)
           </h3>
           <p className="text-white md:text-[2vh]">
@@ -160,18 +168,23 @@ function Resume() {
             <span className="text-green-500">April 2024</span>
           </p>
         </div>
+        </div>
         <div className="flex justify-center p-5">
           <h2 className="border-b-2 border-[#00BFFF] p-1 text-3xl text-white">
             CODING SKILLS
           </h2>
         </div>
-        <div className="ml-4">
+        <div className="ml-4 lg:grid lg:grid-cols-2  gap-4">
+          <div>
           <h5 className="text-white mb-[-12px] md:text-[2rem]">Html</h5>
           <Box
             sx={{
               width: 300,
               "@media (min-width: 768px)": {
                 width: 750,
+              },
+              "@media (min-width: 1024px)": {
+                width: 400,
               },
             }}
           >
@@ -185,12 +198,17 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
+          </div>
+          <div>
           <h5 className="text-white mb-[-12px] md:text-[2rem]">Css</h5>
           <Box
             sx={{
               width: 300,
               "@media (min-width: 768px)": {
                 width: 750,
+              },
+              "@media (min-width: 1024px)": {
+                width: 400,
               },
             }}
           >
@@ -204,6 +222,8 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
+          </div>
+          <div>
           <h5 className="text-white mb-[-12px] md:text-[2rem]">JavaScript</h5>
           <Box
             sx={{
@@ -211,24 +231,8 @@ function Resume() {
               "@media (min-width: 768px)": {
                 width: 750,
               },
-            }}
-          >
-            <Slider
-              data-aos="fade-top"
-              aria-label="Temperature"
-              defaultValue={90}
-              disabled
-              valueLabelDisplay="on"
-              // getAriaValueText={valuetext}
-              style={{ color: "purple" }}
-            />
-          </Box>
-          <h5 className="text-white mb-[-12px] md:text-[2rem]">Figma</h5>
-          <Box
-            sx={{
-              width: 300,
-              "@media (min-width: 768px)": {
-                width: 750,
+              "@media (min-width: 1024px)": {
+                width: 400,
               },
             }}
           >
@@ -242,12 +246,41 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
+          </div>
+          <div>
+          <h5 className="text-white mb-[-12px] md:text-[2rem]">Figma</h5>
+          <Box
+            sx={{
+              width: 300,
+              "@media (min-width: 768px)": {
+                width: 750,
+              },
+              "@media (min-width: 1024px)": {
+                width: 400,
+              },
+            }}
+          >
+            <Slider
+              data-aos="fade-top"
+              aria-label="Temperature"
+              defaultValue={90}
+              disabled
+              valueLabelDisplay="on"
+              // getAriaValueText={valuetext}
+              style={{ color: "purple" }}
+            />
+          </Box>
+          </div>
+          <div>
           <h5 className="text-white mb-[-12px] md:text-[2rem]">Redux</h5>
           <Box
             sx={{
               width: 300,
               "@media (min-width: 768px)": {
                 width: 750,
+              },
+              "@media (min-width: 1024px)": {
+                width: 400,
               },
             }}
           >
@@ -261,12 +294,17 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
+          </div>
+          <div>
           <h5 className="text-white mb-[-12px] md:text-[2rem]">React.Js</h5>
           <Box
             sx={{
               width: 300,
               "@media (min-width: 768px)": {
                 width: 750,
+              },
+              "@media (min-width: 1024px)": {
+                width: 400,
               },
             }}
           >
@@ -280,12 +318,17 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
+          </div>
+          <div>
           <h5 className="text-white mb-[-12px] md:text-[2rem]">TypeScript</h5>
           <Box
             sx={{
               width: 300,
               "@media (min-width: 768px)": {
                 width: 750,
+              },
+              "@media (min-width: 1024px)": {
+                width: 400,
               },
             }}
           >
@@ -299,6 +342,8 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
+          </div>
+          <div>
           <h5 className="text-white mb-[-12px] md:text-[2rem]">React Native</h5>
           <Box
             sx={{
@@ -306,6 +351,9 @@ function Resume() {
               "@media (min-width: 768px)": {
                 width: 750,
               },
+              "@media (min-width: 1024px)": {
+                width: 400,
+              },
             }}
           >
             <Slider
@@ -318,6 +366,8 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
+          </div>
+          <div>
           <h5 className="text-white mb-[-12px] md:text-[2rem]">iOS & Andriod Development</h5>
           <Box
             sx={{
@@ -325,24 +375,8 @@ function Resume() {
               "@media (min-width: 768px)": {
                 width: 750,
               },
-            }}
-          >
-            <Slider
-              data-aos="fade-right"
-              aria-label="Temperature"
-              defaultValue={87}
-              disabled
-              valueLabelDisplay="on"
-              // getAriaValueText={valuetext}
-              style={{ color: "purple" }}
-            />
-          </Box>
-          <h5 className="text-white mb-[-12px] md:text-[2rem]">Expo</h5>
-          <Box
-            sx={{
-              width: 300,
-              "@media (min-width: 768px)": {
-                width: 750,
+              "@media (min-width: 1024px)": {
+                width: 400,
               },
             }}
           >
@@ -356,12 +390,41 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
+          </div>
+          <div>
+          <h5 className="text-white mb-[-12px] md:text-[2rem]">Expo</h5>
+          <Box
+            sx={{
+              width: 300,
+              "@media (min-width: 768px)": {
+                width: 750,
+              },
+              "@media (min-width: 1024px)": {
+                width: 400,
+              },
+            }}
+          >
+            <Slider
+              data-aos="fade-right"
+              aria-label="Temperature"
+              defaultValue={87}
+              disabled
+              valueLabelDisplay="on"
+              // getAriaValueText={valuetext}
+              style={{ color: "purple" }}
+            />
+          </Box>
+          </div>
+          <div>
           <h5 className="text-white mb-[-12px] md:text-[2rem]">TailwindCss</h5>
           <Box
             sx={{
               width: 300,
               "@media (min-width: 768px)": {
                 width: 750,
+              },
+              "@media (min-width: 1024px)": {
+                width: 400,
               },
             }}
           >
@@ -375,12 +438,17 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
+          </div>
+          <div>
           <h5 className="text-white mb-[-12px] md:text-[2rem]">Sass</h5>
           <Box
             sx={{
               width: 300,
               "@media (min-width: 768px)": {
                 width: 750,
+              },
+              "@media (min-width: 1024px)": {
+                width: 400,
               },
             }}
           >
@@ -394,6 +462,8 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
+          </div>
+          <div>
           <h5 className="text-white mb-[-12px] md:text-[2rem]">
             Git Versioning
           </h5>
@@ -402,6 +472,9 @@ function Resume() {
               width: 300,
               "@media (min-width: 768px)": {
                 width: 750,
+              },
+              "@media (min-width: 1024px)": {
+                width: 400,
               },
             }}
           >
@@ -415,12 +488,17 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
+          </div>
+          <div>
           <h5 className="text-white mb-[-12px] md:text-[2rem]">Restful Api & Ajax</h5>
           <Box
             sx={{
               width: 300,
               "@media (min-width: 768px)": {
                 width: 750,
+              },
+              "@media (min-width: 1024px)": {
+                width: 400,
               },
             }}
           >
@@ -434,6 +512,7 @@ function Resume() {
               style={{ color: "purple" }}
             />
           </Box>
+        </div>
         </div>
       </div>
     </AnimatedPage>
