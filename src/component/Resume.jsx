@@ -46,7 +46,7 @@ function Resume() {
         </div>
         <div className="lg:grid lg:grid-cols-2 lg:gap-3">
         <div className="ml-5 border-l-4 p-6 border-[#00BFFF] lg:border-none lg:bg-[#111418] lg:rounded-xl lg:shadow-lg">
-          <span className="bg-red-700 text-white px-4 py-1 rounded-xl">current</span>
+          <span className="bg-red-700 text-white px-4 py-1 rounded-xl">contract</span>
           <h2
             className="text-white
          font-bold md:text-[2.5vh] mt-5"
@@ -57,11 +57,19 @@ function Resume() {
             Vehance Technologies
           </p>
           <p className="text-white md:text-[1.8vh]">
-            At Vehance Technologies, we specialize in building cutting-edge websites and mobile applications for businesses of all sizes. Our team focuses on delivering custom, responsive websites that provide an exceptional user experience, designed to help businesses grow and establish a powerful online presence.
+         
+Designed and developed a responsive and user-friendly VTU web application,[ Payloow], utilizing React.js, Tailwind CSS, and React Context Management  to deliver an optimized user experience. <br/>
 
-            In addition to web development, we also create VTU (Virtual Top-Up) apps, enabling businesses to offer seamless mobile recharge services. These applications allow users to top-up mobile phones, pay bills, and access other digital services through integrated payment systems, making it easier for businesses to engage customers and streamline financial transactions.
+- Designed and implemented responsive and user-friendly UI components for key application pages, including the Authentication Page, Bills Payment Page, EasyBuy Page, E-Learning Page,  Investment Page, and Admin Page. <br />
 
-            With a commitment to quality, innovation, and customer satisfaction, we help businesses leverage technology to enhance their digital operations and stay ahead of the competition.
+-Collaborated with backend team to integrate APIs for seamless data exchange <br/>
+
+-Enhanced the web application by implementing Progressive Web App (PWA) functionality, enabling offline capabilities, faster loading times, and app-like user experience. <br/>
+
+-Improved app loading time by 30% through optimization techniques <br/>
+
+-Utilized Vercel's serverless platform to deploy the web application.
+
           </p>
         </div>
         <div className="ml-5 border-l-4 p-6 border-[#00BFFF] lg:border-none lg:bg-[#111418] lg:rounded-xl lg:shadow-lg">

@@ -3,6 +3,7 @@ import "../styles/public.css";
 import { Typography } from "@mui/material";
 import Typewriter from "./Typewriter";
 import AnimatedPage from "./AnimatedPage";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -38,12 +39,13 @@ function Home() {
           </Typography>
           <Typewriter />
           <div className="my-10">
+            <Link to={'/contact'}>
             <a
-              href="contact"
               className="border-2 border-[yellow] rounded-2xl p-3 px-8  text-[yellow] font-sans"
             >
               Hire Me
             </a>
+            </Link>
           </div>
         </div>
       </div>

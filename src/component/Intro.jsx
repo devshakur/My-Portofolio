@@ -160,8 +160,6 @@ function Intro() {
             </div>
           </div>
         </div>
-
-        {/* Download Resume Button */}
         <div className="flex justify-center">
           <Button
             onClick={handleClick}
@@ -180,15 +178,13 @@ function Intro() {
           </Button>
         </div>
 
-        {/* Hidden anchor link for downloading the resume */}
         <a
           ref={linkRef}
           href="/devshakur_resume.pdf"  
           download="devshakur_resume.pdf" 
           style={{ display: 'none' }} 
         ></a>
-
-        {/* Services Section */}
+        
         <div className="mt-[6vh]">
           <div>
             <div className="flex justify-center">
@@ -261,11 +257,10 @@ function Intro() {
                 />
                 <div className="flex flex-col items-center lg:items-start">
                   <Typography variant="h6" className="text-white">
-                    UI/UX Design
+                   Site Maintenance
                   </Typography>
                   <p className="ml-4 text-white mr-4 flex justify-center lg:justify-start">
-                    Focus on creating intuitive and visually appealing designs that
-                    improve the user experience.
+                  monitoring, updating, and improving  website to ensure it performs efficiently, remains secure, and meets user needs.
                   </p>
                 </div>
               </div>
