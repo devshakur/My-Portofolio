@@ -17,7 +17,6 @@ function Intro() {
   const [changeVariant, setchangeVariant] = useState("contained");
   const linkRef = useRef(null);
 
-  
   const handleDownload = () => {
     const link = linkRef.current;
     link.click();
@@ -26,10 +25,10 @@ function Intro() {
   const changeButtonVariant = () => {
     setchangeVariant(changeVariant === "contained" ? "outlined" : "contained");
   };
-  const handleClick = ()=>{
+  const handleClick = () => {
     handleDownload();
     changeButtonVariant();
-  }
+  };
 
   return (
     <AnimatedPage>
@@ -69,7 +68,7 @@ function Intro() {
               },
             }}
           >
-            UI/UX DEVELOPER
+            FRONTEND DEVELOPER
             <span>
               <LaptopMacOutlinedIcon
                 fontSize="large"
@@ -78,20 +77,21 @@ function Intro() {
               />
             </span>
           </Typography>
-          <div className="flex flex-col lg:flex-row gap-3 text-start">
-            <p className="w-[100%] text-[#ffffff] ml-4 md:text-[25px] lg:text-[16px] font-sans lg:w-[50%]">
-              As a web developer, I am passionate about creating engaging and
-              user-friendly websites that provide seamless and interactive online
-              experiences. With a strong foundation in programming languages such
-              as HTML, CSS, and JavaScript, I am adept at turning design concepts
-              into functional websites that not only look great but also perform
-              smoothly across various devices.
+          <div className="flex flex-col lg:flex-row gap-3 text-start mx-3">
+            <p className="w-[100%] text-[#ffffff]  md:text-[25px] lg:text-[16px] font-sans lg:w-[50%]">
+              As a frontend developer, I am passionate about creating engaging
+              and user-friendly websites that provide seamless and interactive
+              online experiences. With a strong foundation in HTML, CSS,
+              JavaScript, React, Next.js, and Typescript I am adept at turning
+              design concepts into functional websites that not only look great
+              but also perform smoothly across various devices.
               <br />
               <br />I continuously stay updated on the latest trends and
-              technologies in web development to ensure that the websites I create
-              are modern, accessible, and optimized for search engines. My goal is
-              to bring my clients' visions to life on the web while prioritizing
-              usability, performance, and a visually appealing design.
+              technologies in web development to ensure that the websites I
+              create are modern, accessible, and optimized for search engines.
+              My goal is to bring my clients' visions to life on the web while
+              prioritizing usability, scalability, performance, and a visually
+              appealing design.
             </p>
             <div className="lg:mt-[-35px] lg:ml-24">
               <Typography
@@ -113,49 +113,54 @@ function Intro() {
                   {" "}
                   Name:
                 </span>
-                <span className="ml-2 md:text-[2rem] lg:text-[16px]">Dauda Abdulshakur</span>
+                <span className="ml-2 md:text-[2rem] lg:text-[16px]">
+                  Dauda Abdulshakur
+                </span>
               </p>
               <p className="text-white mb-3 ml-3">
                 <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[18px]">
                   {" "}
                   Residence:
                 </span>
-                <span className="ml-2 md:text-[2rem] lg:text-[16px]">Abuja, Nigeria</span>
-              </p>
-              <p className="text-white mb-3 ml-3">
-                <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">
-                  {" "}
-                  Address:
+                <span className="ml-2 md:text-[2rem] lg:text-[16px]">
+                  Abuja, Nigeria
                 </span>
-                <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">Zone 1, Dutsen Alhaji</span>
               </p>
               <p className="text-white mb-3 ml-3">
                 <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">
                   {" "}
                   Email:
                 </span>
-                <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">devshakur@gmail.com</span>
+                <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">
+                  devshakur23@gmail.com
+                </span>
               </p>
               <p className="text-white mb-3 ml-3">
                 <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">
                   {" "}
                   Phone:
                 </span>
-                <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">(+234) 8129378618</span>
+                <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">
+                  (+234) 8129378618
+                </span>
               </p>
               <p className="text-white mb-3 ml-3">
                 <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">
                   {" "}
                   GitHub:
                 </span>
-                <span className="ml-2 md:text-[2rem] lg:text-[16px]">https://github.com/devshakur</span>
+                <span className="ml-2 md:text-[2rem] lg:text-[16px]">
+                  https://github.com/devshakur
+                </span>
               </p>
               <p className="text-white ml-3">
                 <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">
                   {" "}
                   Freelance:
                 </span>
-                <span className="ml-2 md:text-[2rem] lg:text-[16px]">available</span>
+                <span className="ml-2 md:text-[2rem] lg:text-[16px]">
+                  available
+                </span>
               </p>
             </div>
           </div>
@@ -180,11 +185,11 @@ function Intro() {
 
         <a
           ref={linkRef}
-          href="/devshakur_resume.pdf"  
-          download="devshakur_resume.pdf" 
-          style={{ display: 'none' }} 
+          href="/devshakur_resume.pdf"
+          download="devshakur_resume.pdf"
+          style={{ display: "none" }}
         ></a>
-        
+
         <div className="mt-[6vh]">
           <div>
             <div className="flex justify-center">
@@ -205,9 +210,9 @@ function Intro() {
                     Web Development
                   </Typography>
                   <p className="ml-4 text-white mr-4 flex justify-center lg:justify-start">
-                    Frontend Development: Creating the user interface (UI) and user
-                    experience (UX) of a website using Html, Css, Javascript, React,
-                    and Next.js.
+                    Frontend Development: Creating the user interface (UI) and
+                    user experience (UX) of a website using Html, Css,
+                    Javascript, React, and Next.js.
                   </p>
                 </div>
               </div>
@@ -224,8 +229,8 @@ function Intro() {
                     Web Design Optimization
                   </Typography>
                   <p className="ml-4 text-white mr-4 flex justify-center lg:justify-start">
-                    Making websites more accessible, mobile-responsive, and visually
-                    appealing by improving designs.
+                    Making websites more accessible, mobile-responsive, and
+                    visually appealing by improving designs.
                   </p>
                 </div>
               </div>
@@ -242,8 +247,8 @@ function Intro() {
                     SEO Optimization
                   </Typography>
                   <p className="ml-4 text-white mr-4 flex justify-center lg:justify-start">
-                    Optimize websites to rank higher in search engines like Google by
-                    improving structure and content.
+                    Optimize websites to rank higher in search engines like
+                    Google by improving structure and content.
                   </p>
                 </div>
               </div>
@@ -257,10 +262,11 @@ function Intro() {
                 />
                 <div className="flex flex-col items-center lg:items-start">
                   <Typography variant="h6" className="text-white">
-                   Site Maintenance
+                    Site Maintenance
                   </Typography>
                   <p className="ml-4 text-white mr-4 flex justify-center lg:justify-start">
-                  monitoring, updating, and improving  website to ensure it performs efficiently, remains secure, and meets user needs.
+                    monitoring, updating, and improving website to ensure it
+                    performs efficiently, remains secure, and meets user needs.
                   </p>
                 </div>
               </div>

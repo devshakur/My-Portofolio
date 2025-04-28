@@ -3,9 +3,9 @@ import React, { useState, useEffect } from "react";
 
 const Typewriter = () => {
   const keywords = [
-    "Frontend Engineer...",
+    "Frontend Developer...",
     "Web Designer...",
-    "Mobile Developer...",
+    "Enterprise Software Dev.",
   ];
   const [index, setIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
@@ -53,7 +53,7 @@ const Typewriter = () => {
       >
         I am a{" "}
         <span className="text-blue-400 md:text-[yellow] font-bold">
-          {displayedText} 
+          {displayedText}
         </span>
       </Typography>
     </div>
