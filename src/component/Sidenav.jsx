@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import profilePics from "../assest/images/my-picture.jpg";
+import profilePics from "../assest/images/mypics.jpeg";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
@@ -47,7 +47,7 @@ function Sidenav() {
       >
         <div className="bg-gray-300">
           <img
-            className="md:h-[100%] w-[100%] object-center pl-3 mt-5 object-cover"
+            className="md:h-[100%] w-[100%] object-center   object-cover"
             src={profilePics}
             alt="profile"
           />
@@ -194,11 +194,11 @@ function Sidenav() {
           </ul>
           <div className="flex">
             <p className="ml-[11vw] text-[12px] text-gray-500 md:text-[2vh]">
-              2024 <CopyrightIcon fontSize="small" /> devshakur  <span className="mt-1 text-[10px] text-gray-500 md:text-[1rem]">
-              All Right Reserved
-            </span>
+              2024 <CopyrightIcon fontSize="small" /> devshakur{" "}
+              <span className="mt-1 text-[10px] text-gray-500 md:text-[1rem]">
+                All Right Reserved
+              </span>
             </p>
-           
           </div>
         </div>
       </div>

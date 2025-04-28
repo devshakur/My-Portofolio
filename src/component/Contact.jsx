@@ -80,24 +80,33 @@ function Contact() {
               onSubmit={sendEmail}
               className="flex flex-col m-5 w-[90vw] gap-8 "
             >
-              <input type="text" className="rounded-lg bg-[#232A31] text-white py-4 border-none focus:border-none focus:outline-none px-4 shadow-lg" autoComplete="off" id="outlined-basic"
+              <input
+                type="text"
+                className="rounded-lg bg-[#232A31] text-white py-4 border-none focus:border-none focus:outline-none px-4 shadow-lg"
+                autoComplete="off"
+                id="outlined-basic"
                 label="Name"
                 required
                 placeholder="Name"
-                name="from_name" />
+                name="from_name"
+              />
 
-              <input id="outlined-basic"
-                className="rounded-lg bg-[#232A31] text-white py-4 border-none focus:border-none focus:outline-none px-4 shadow-lg" autoComplete="off"
+              <input
+                id="outlined-basic"
+                className="rounded-lg bg-[#232A31] text-white py-4 border-none focus:border-none focus:outline-none px-4 shadow-lg"
+                autoComplete="off"
                 type="email"
                 label="Email"
                 required
                 name="to_email"
                 placeholder="Email"
-                variant="outlined" />
+                variant="outlined"
+              />
 
               <textarea
                 id="outlined-multiline-static"
-                className="rounded-lg bg-[#232A31] text-white border-none focus:border-none focus:outline-none px-4 py-3 shadow-lg w-full" autoComplete="off"
+                className="rounded-lg bg-[#232A31] text-white border-none focus:border-none focus:outline-none px-4 py-3 shadow-lg w-full"
+                autoComplete="off"
                 label="Message"
                 name="message"
                 required
@@ -119,7 +128,6 @@ function Contact() {
                 >
                   Send
                 </Button>
-
               </div>
               <ToastContainer />
             </form>
@@ -128,7 +136,11 @@ function Contact() {
           <div className="flex justify-center flex-col gap-8 items-center w-full mt-8 text-[#057496] lg:mt-[-6rem] lg:gap-12">
             <div className="flex flex-col">
               <TelegramIcon
-                sx={{ marginLeft: "16vw", marginBottom: "1vw", fontSize: "6vh" }}
+                sx={{
+                  marginLeft: "16vw",
+                  marginBottom: "1vw",
+                  fontSize: "6vh",
+                }}
               />
               <Typography
                 variant="p"
@@ -147,7 +159,11 @@ function Contact() {
             </div>
             <div className="flex flex-col">
               <LocationOnIcon
-                sx={{ marginLeft: "16vw", marginBottom: "1vw", fontSize: "6vh" }}
+                sx={{
+                  marginLeft: "10vw",
+                  marginBottom: "1vw",
+                  fontSize: "6vh",
+                }}
               />
               <Typography
                 variant="p"
@@ -157,11 +173,11 @@ function Contact() {
                     marginLeft: "7vw",
                   },
                   "@media (min-width: 1024px)": {
-                    marginLeft: "11vw",
+                    textAlign: "center",
                   },
                 }}
               >
-                279,Dutse,Abuja,Nigeria
+                FCT, Abuja,Nigeria
               </Typography>
             </div>
             <div className="flex flex-col">
@@ -187,7 +203,7 @@ function Contact() {
                   },
                 }}
               >
-                (+234)81 293 786 18
+                (+234) 81 293 786 18
               </Typography>
             </div>
           </div>
