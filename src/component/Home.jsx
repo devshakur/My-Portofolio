@@ -1,36 +1,45 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import AnimatedPage from "./AnimatedPage";
 import HeroScene, { HeroSnow } from "./HeroScene";
+import Intro from "./Intro";
+import PageSections from "./PageSections";
 import { SKILL_GROUPS, TECH_STACK } from "./techStack";
 
 const SOCIALS = [
   { label: "GitHub", href: "https://github.com/devshakur", Icon: GitHubIcon },
-  { label: "LinkedIn", href: "https://www.linkedin.com", Icon: LinkedInIcon },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/shakiru-abdulshakur-dauda-200223343", Icon: LinkedInIcon },
   { label: "Email", href: "mailto:devshakur23@gmail.com", Icon: EmailOutlinedIcon },
 ];
 
 function Home() {
   const [activeTech, setActiveTech] = useState(0);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const id = location.hash.slice(1);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }, [location.hash, location.pathname]);
+
+  const scrollToAbout = () => {
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <AnimatedPage>
-      <section
-        className="relative flex min-h-[calc(100vh-72px)] flex-col overflow-hidden bg-[#070b12] text-white"
-        style={{ fontFamily: "Inter, sans-serif" }}
-      >
+    <div className="bg-[#070b12] text-white" style={{ fontFamily: "Inter, sans-serif" }}>
+      <section className="relative flex min-h-[calc(100vh-72px)] flex-col overflow-hidden">
         <HeroSnow />
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -left-24 top-1/4 h-80 w-80 rounded-full bg-emerald-400/15 blur-[100px]" />
           <div className="absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-emerald-500/10 blur-[120px]" />
         </div>
 
-        <div className="relative mx-auto grid w-full max-w-[1200px] flex-1 items-center gap-8 px-5 py-10 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:py-6">
-          <div className="max-w-xl">
+        <div className="relative grid w-full flex-1 items-start gap-8 px-5 py-8 sm:px-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1.1fr)] lg:items-center lg:px-12 lg:py-6 xl:px-16">
+          <div className="max-w-xl lg:max-w-[34rem]">
             <p className="text-sm font-medium tracking-wide text-emerald-400">Hi, I&apos;m</p>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-[3.4rem] lg:leading-[1.1]">
               Abdulshakur Dauda
@@ -99,17 +108,23 @@ function Home() {
             </div>
           </div>
 
-          <div className="relative h-[420px] w-full sm:h-[520px] lg:h-[min(680px,calc(100vh-140px))]">
+          <div className="relative mx-auto h-[420px] w-full max-w-lg sm:h-[520px] lg:mx-0 lg:ml-auto lg:h-[min(640px,calc(100vh-160px))] lg:max-w-none">
             <HeroScene onActiveChange={setActiveTech} />
           </div>
         </div>
 
-        <div className="relative flex items-center justify-center gap-2 pb-6 text-xs tracking-wide text-white/45">
+        <button
+          type="button"
+          onClick={scrollToAbout}
+          className="relative flex items-center gap-2 px-5 pb-6 text-xs tracking-wide text-white/45 sm:px-8 lg:px-12 xl:px-16"
+        >
           <KeyboardArrowDownIcon sx={{ fontSize: 18 }} className="animate-bounce" />
           Scroll to explore
-        </div>
+        </button>
       </section>
-    </AnimatedPage>
+      <Intro />
+      <PageSections />
+    </div>
   );
 }
 

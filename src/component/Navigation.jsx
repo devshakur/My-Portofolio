@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import Sidenav from "./Sidenav";
 import { CV_FILENAME, CV_HREF, NAV_LINKS } from "./navLinks";
+
+const THEME_WASH = { light: "#f6f7f4", dark: "#070b12" };
 
 function BrandLogo() {
   return (
@@ -15,7 +18,7 @@ function BrandLogo() {
       >
         AD
       </span>
-      <span className="whitespace-nowrap text-[15px] font-medium tracking-wide text-white">
+      <span className="truncate text-[15px] font-medium tracking-wide text-white">
         Abdulshakur Dauda
       </span>
     </Link>
@@ -24,11 +27,67 @@ function BrandLogo() {
 
 function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [theme, setTheme] = useState(
+    () => (document.documentElement.dataset.theme === "light" ? "light" : "dark")
+  );
+  const [wash, setWash] = useState(null);
+  const washTimer = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => () => window.clearTimeout(washTimer.current), []);
+
+  const applyTheme = (next) => {
+    document.documentElement.dataset.theme = next;
+    window.localStorage.setItem("portfolio-theme", next);
+    setTheme(next);
+  };
+
+  const toggleTheme = (event) => {
+    if (wash) return;
+    const next = theme === "dark" ? "light" : "dark";
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      applyTheme(next);
+      return;
+    }
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    setWash({
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2,
+      color: THEME_WASH[next],
+    });
+    washTimer.current = window.setTimeout(() => {
+      applyTheme(next);
+      setWash(null);
+    }, 680);
+  };
+
+  const linkIsActive = (to) => {
+    if (to.startsWith("/#")) {
+      return location.pathname === "/" && location.hash === to.slice(1);
+    }
+    if (to === "/") {
+      return location.pathname === "/" && location.hash === "";
+    }
+    return location.pathname === to;
+  };
 
   return (
     <>
-      <header className="sticky top-0 z-30 w-full border-b border-white/[0.06] bg-[#141414]/95 backdrop-blur-md lg:border-transparent lg:bg-transparent lg:backdrop-blur-none">
-        <div className="mx-auto grid h-[72px] max-w-[1200px] grid-cols-[1fr_auto] items-center gap-4 px-4 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-8">
+      {wash && (
+        <div
+          className="theme-wash"
+          style={{
+            "--wash-x": `${wash.x}px`,
+            "--wash-y": `${wash.y}px`,
+            "--wash-color": wash.color,
+          }}
+          aria-hidden
+        />
+      )}
+      <header className="sticky top-0 z-30 w-full border-b border-white/[0.06] bg-[#141414]/95 backdrop-blur-md lg:border-white/10 lg:bg-[#070b12]/55 lg:backdrop-blur-xl">
+        <div className="grid h-[72px] w-full grid-cols-[1fr_auto] items-center gap-4 px-5 sm:px-8 lg:grid-cols-[1fr_auto_1fr] lg:px-12 xl:px-16">
           <BrandLogo />
 
           <nav
@@ -39,26 +98,30 @@ function Navigation() {
               <NavLink
                 key={to}
                 to={to}
-                className={({ isActive }) =>
-                  `text-[15px] font-medium transition-colors no-underline ${
-                    isActive
-                      ? "text-white"
-                      : "text-white/55 hover:text-white/90"
-                  }`
-                }
+                className={`text-[15px] font-medium transition-colors no-underline ${
+                  linkIsActive(to)
+                    ? "text-white"
+                    : "text-white/55 hover:text-white/90"
+                }`}
               >
                 {label}
               </NavLink>
             ))}
           </nav>
 
-          <div className="flex items-center justify-end gap-2 sm:gap-3">
+          <div className="flex shrink-0 items-center justify-end gap-2 sm:gap-3">
             <button
               type="button"
-              className="hidden h-10 w-10 items-center justify-center rounded-full text-white/70 transition hover:bg-white/10 hover:text-white lg:flex"
-              aria-label="Toggle theme"
+              className="flex h-10 w-10 items-center justify-center rounded-full text-white/70 transition hover:bg-white/10 hover:text-white"
+              aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+              aria-pressed={theme === "light"}
+              onClick={toggleTheme}
             >
-              <WbSunnyOutlinedIcon sx={{ fontSize: 22 }} />
+              {theme === "dark" ? (
+                <WbSunnyOutlinedIcon sx={{ fontSize: 22 }} />
+              ) : (
+                <DarkModeOutlinedIcon sx={{ fontSize: 22 }} />
+              )}
             </button>
 
             <a
@@ -74,7 +137,7 @@ function Navigation() {
 
             <button
               type="button"
-              className="flex h-10 w-10 items-center justify-center rounded-lg text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 lg:hidden"
+              className="relative z-40 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 lg:hidden"
               aria-label="Open menu"
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen(true)}

@@ -4,15 +4,11 @@ import {
   Routes,
   Route,
   useLocation,
+  Navigate,
 } from "react-router-dom";
 import "./index.css";
-import "./styles/public.css";
 import Home from "./component/Home";
-import Intro from "./component/Intro";
 import Layout from "./component/Layout";
-import Resume from "./component/Resume";
-import Portfolio from "./component/Portfolio";
-import Contact from "./component/Contact";
 import { AnimatePresence } from "framer-motion";
 
 export function AnimatedRoutes() {
@@ -22,10 +18,10 @@ export function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes key={location.pathname} location={location}>
         <Route path="/" element={<Home />} />
-        <Route path="/intro" element={<Intro />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/intro" element={<Navigate to="/#about" replace />} />
+        <Route path="/resume" element={<Navigate to="/#experience" replace />} />
+        <Route path="/portfolio" element={<Navigate to="/#projects" replace />} />
+        <Route path="/contact" element={<Navigate to="/#contact" replace />} />
       </Routes>
     </AnimatePresence>
   );

@@ -1,277 +1,124 @@
-import { useState, useRef } from "react";
-import { Typography } from "@mui/material";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import LaptopMacOutlinedIcon from "@mui/icons-material/LaptopMacOutlined";
-import Button from "@mui/material/Button";
-import LaptopWindowsOutlinedIcon from "@mui/icons-material/LaptopWindowsOutlined";
-import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
-import DevicesOutlinedIcon from "@mui/icons-material/DevicesOutlined";
-import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
-import "../styles/public.css";
-import AnimatedPage from "./AnimatedPage";
+import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
+import LayersOutlinedIcon from "@mui/icons-material/LayersOutlined";
+import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
+import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import portrait from "../assest/images/mypic.png";
+import { TECHNOLOGIES } from "./techStack";
+import TechIcon from "./TechIcon";
+
+const STATS = [
+  { value: "3+", label: "Years Experience", Icon: WorkOutlineOutlinedIcon },
+  { value: "15+", label: "Projects Completed", Icon: LayersOutlinedIcon },
+  { value: "10+", label: "Technologies Mastered", Icon: CodeOutlinedIcon },
+  { value: "100%", label: "Focus on Quality", Icon: VerifiedOutlinedIcon },
+];
 
 function Intro() {
-  const [changeVariant, setchangeVariant] = useState("contained");
-  const linkRef = useRef(null);
-
-  const handleDownload = () => {
-    const link = linkRef.current;
-    link.click();
-  };
-
-  const changeButtonVariant = () => {
-    setchangeVariant(changeVariant === "contained" ? "outlined" : "contained");
-  };
-  const handleClick = () => {
-    handleDownload();
-    changeButtonVariant();
+  const scrollToTechnologies = () => {
+    document.getElementById("technologies")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <AnimatedPage>
-      <main className="h-full bg-[#2f2f2f] pb-[50px]">
-        <div>
-          <div className="flex justify-between items-end h-[10vh] border-b border-gray-500">
-            <Typography
-              variant="h6"
-              className="text-blue-500"
-              sx={{
-                fontWeight: "bold",
-                marginLeft: "8px",
-                paddingBottom: "7px",
-              }}
+    <main id="about" className="scroll-mt-24 bg-[#070b12] text-white" style={{ fontFamily: "Inter, sans-serif" }}>
+      <section className="px-5 py-14 sm:px-8 lg:py-20">
+        <div className="mx-auto flex w-full max-w-[1080px] flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-center lg:gap-10">
+        <div className="max-w-md shrink-0">
+          <p className="text-sm font-medium text-emerald-400">About Me</p>
+          <h1 className="mt-4 max-w-md text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+            Turning ideas into interactive experiences
+          </h1>
+          <p className="mt-5 max-w-md text-sm leading-relaxed text-white/60 sm:text-base">
+            I&apos;m a frontend engineer with over 3 years of experience building modern web
+            applications using React, Next.js and related technologies. I enjoy solving real
+            problems, working with great teams, and creating seamless experiences for users.
+          </p>
+          <button
+            type="button"
+            onClick={scrollToTechnologies}
+            className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm text-white transition hover:border-white/30 hover:bg-white/5"
+          >
+            More About Me
+            <ArrowForwardIcon sx={{ fontSize: 16 }} />
+          </button>
+        </div>
+
+        <div className="flex w-full flex-row items-start gap-3 sm:gap-6 lg:w-auto">
+        <div className="relative w-[42%] max-w-[280px] shrink-0 sm:w-[240px] lg:w-[280px]">
+          <div className="absolute -inset-3 rounded-[32px] bg-emerald-500/25 blur-2xl" />
+          <img
+            src={portrait}
+            alt="Abdulshakur Dauda"
+            className="relative aspect-[4/5] w-full rounded-[28px] object-cover object-top"
+          />
+        </div>
+
+        <ul className="flex min-w-0 flex-1 flex-col gap-2 sm:gap-3 lg:w-[230px] lg:flex-none">
+          {STATS.map(({ value, label, Icon }) => (
+            <li
+              key={label}
+              className="flex items-center gap-2 rounded-2xl border border-white/10 bg-[#101820] px-2.5 py-2 sm:gap-3 sm:px-4 sm:py-3"
             >
-              About Me.
-            </Typography>
-            <PersonOutlineOutlinedIcon
-              fontSize="medium"
-              sx={{ fontSize: "5vh" }}
-              className="text-blue-500"
-            />
-          </div>
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-400/10 text-emerald-400 sm:h-10 sm:w-10 sm:rounded-xl">
+                <Icon sx={{ fontSize: 18 }} />
+              </span>
+              <span>
+                <span className="block text-sm font-semibold leading-none sm:text-lg">{value}</span>
+                <span className="mt-1 block text-[10px] leading-tight text-white/50 sm:text-xs">{label}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
         </div>
-        <div>
-          <Typography
-            variant="h5"
-            className="text-[#ffffff]"
-            sx={{
-              fontWeight: "bold",
-              marginLeft: "1rem",
-              marginTop: "5vh",
-              letterSpacing: "2px",
-              fontSize: "7vw",
-              "@media (min-width: 1024px)": {
-                fontSize: "4vh",
-              },
-            }}
-          >
-            FRONTEND DEVELOPER
-            <span>
-              <LaptopMacOutlinedIcon
-                fontSize="large"
-                sx={{ fontSize: "5vh", marginLeft: "18px" }}
-                className="text-blue-500"
-              />
-            </span>
-          </Typography>
-          <div className="flex flex-col lg:flex-row gap-3 text-start mx-3">
-            <p className="w-[100%] text-[#ffffff]  md:text-[25px] lg:text-[16px] font-sans lg:w-[50%]">
-              As a frontend developer, I am passionate about creating engaging
-              and user-friendly websites that provide seamless and interactive
-              online experiences. With a strong foundation in HTML, CSS,
-              JavaScript, React, Next.js, and Typescript I am adept at turning
-              design concepts into functional websites that not only look great
-              but also perform smoothly across various devices.
-              <br />
-              <br />I continuously stay updated on the latest trends and
-              technologies in web development to ensure that the websites I
-              create are modern, accessible, and optimized for search engines.
-              My goal is to bring my clients&apos; visions to life on the web while
-              prioritizing usability, scalability, performance, and a visually
-              appealing design.
+        </div>
+      </section>
+
+      <section id="technologies" className="scroll-mt-24 border-t border-white/10">
+        <div className="w-full px-5 py-16 sm:px-8 lg:px-12 xl:px-16">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-medium text-emerald-400">Skills</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+                Technologies I Work With
+              </h2>
+            </div>
+            <p className="max-w-sm text-sm leading-relaxed text-white/50">
+              A combination of modern tools and frameworks to build fast, scalable and
+              user-friendly applications.
             </p>
-            <div className="lg:mt-[-35px] lg:ml-24">
-              <Typography
-                variant="h6"
-                className="text-white"
-                sx={{
-                  fontWeight: "bold",
-                  marginTop: "3vh",
-                  marginLeft: "18px",
-                  "@media (min-width: 768px)": {
-                    fontSize: "3vh",
-                  },
-                }}
+          </div>
+
+          <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {TECHNOLOGIES.slice(0, 5).map((tech) => (
+              <li
+                key={tech.name}
+                className="rounded-2xl border border-white/10 bg-[#101820] p-5"
               >
-                Personal Information
-              </Typography>
-              <p className="text-white mb-3 ml-3">
-                <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">
-                  {" "}
-                  Name:
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/[0.04]">
+                  <TechIcon name={tech.name} accent={tech.accent} />
                 </span>
-                <span className="ml-2 md:text-[2rem] lg:text-[16px]">
-                  Dauda Abdulshakur
+                <h3 className="mt-4 text-base font-semibold">{tech.name}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-white/45">{tech.description}</p>
+              </li>
+            ))}
+          </ul>
+          <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            {TECHNOLOGIES.slice(5).map((tech) => (
+              <li
+                key={tech.name}
+                className="rounded-2xl border border-white/10 bg-[#101820] p-5"
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/[0.04]">
+                  <TechIcon name={tech.name} accent={tech.accent} />
                 </span>
-              </p>
-              <p className="text-white mb-3 ml-3">
-                <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[18px]">
-                  {" "}
-                  Residence:
-                </span>
-                <span className="ml-2 md:text-[2rem] lg:text-[16px]">
-                  Abuja, Nigeria
-                </span>
-              </p>
-              <p className="text-white mb-3 ml-3">
-                <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">
-                  {" "}
-                  Email:
-                </span>
-                <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">
-                  devshakur23@gmail.com
-                </span>
-              </p>
-              <p className="text-white mb-3 ml-3">
-                <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">
-                  {" "}
-                  Phone:
-                </span>
-                <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">
-                  (+234) 8129378618
-                </span>
-              </p>
-              <p className="text-white mb-3 ml-3">
-                <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">
-                  {" "}
-                  GitHub:
-                </span>
-                <span className="ml-2 md:text-[2rem] lg:text-[16px]">
-                  https://github.com/devshakur
-                </span>
-              </p>
-              <p className="text-white ml-3">
-                <span className="border-b border-blue-500 ml-2 md:text-[2rem] lg:text-[16px]">
-                  {" "}
-                  Freelance:
-                </span>
-                <span className="ml-2 md:text-[2rem] lg:text-[16px]">
-                  available
-                </span>
-              </p>
-            </div>
-          </div>
+                <h3 className="mt-4 text-base font-semibold">{tech.name}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-white/45">{tech.description}</p>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="flex justify-center">
-          <Button
-            onClick={handleClick}
-            variant={changeVariant}
-            sx={{
-              marginTop: "4vh",
-              marginLeft: "2vh",
-              color: changeVariant === "contained" ? "white" : "blue",
-              "@media (min-width: 768px)": {
-                fontSize: "20px",
-                fontWeight: "bold",
-              },
-            }}
-          >
-            DOWNLOAD RESUME
-          </Button>
-        </div>
-
-        <a
-          ref={linkRef}
-          href="/devshakur_resume.pdf"
-          download="devshakur_resume.pdf"
-          style={{ display: "none" }}
-        ></a>
-
-        <div className="mt-[6vh]">
-          <div>
-            <div className="flex justify-center">
-              <h4 className="w-max text-white text-3xl border-b-2 border-blue-600">
-                SERVICES
-              </h4>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-9 mx-5">
-              {/* Web Development */}
-              <div className="flex flex-col items-center lg:flex-row lg:items-start lg:space-x-4 mt-8">
-                <LaptopWindowsOutlinedIcon
-                  className="lg:text-[#20C997] text-blue-500 lg:bg-[#212529] lg:p-3 lg:rounded-md"
-                  fontSize="large"
-                  sx={{ fontSize: "8vh" }}
-                />
-                <div className="flex flex-col items-center lg:items-start">
-                  <Typography variant="h6" className="text-white">
-                    Web Development
-                  </Typography>
-                  <p className="ml-4 text-white mr-4 flex justify-center lg:justify-start">
-                    Frontend Development: Creating the user interface (UI) and
-                    user experience (UX) of a website using Html, Css,
-                    Javascript, React, and Next.js.
-                  </p>
-                </div>
-              </div>
-
-              {/* Web Design Optimization */}
-              <div className="flex flex-col items-center lg:flex-row lg:items-start lg:space-x-4 mt-8">
-                <VisibilityOutlinedIcon
-                  className="lg:text-[#20C997] text-blue-500 lg:bg-[#212529] lg:p-3 lg:rounded-md"
-                  fontSize="large"
-                  sx={{ fontSize: "8vh" }}
-                />
-                <div className="flex flex-col items-center lg:items-start">
-                  <Typography variant="h6" className="text-white">
-                    Web Design Optimization
-                  </Typography>
-                  <p className="ml-4 text-white mr-4 flex justify-center lg:justify-start">
-                    Making websites more accessible, mobile-responsive, and
-                    visually appealing by improving designs.
-                  </p>
-                </div>
-              </div>
-
-              {/* SEO Optimization */}
-              <div className="flex flex-col items-center lg:flex-row lg:items-start lg:space-x-4 mt-8">
-                <DevicesOutlinedIcon
-                  className="lg:text-[#20C997] text-blue-500 lg:bg-[#212529] lg:p-3 lg:rounded-md"
-                  fontSize="large"
-                  sx={{ fontSize: "8vh" }}
-                />
-                <div className="flex flex-col items-center lg:items-start">
-                  <Typography variant="h6" className="text-white">
-                    SEO Optimization
-                  </Typography>
-                  <p className="ml-4 text-white mr-4 flex justify-center lg:justify-start">
-                    Optimize websites to rank higher in search engines like
-                    Google by improving structure and content.
-                  </p>
-                </div>
-              </div>
-
-              {/* UI/UX Design */}
-              <div className="flex flex-col items-center lg:flex-row lg:items-start lg:space-x-4 mt-8">
-                <EngineeringOutlinedIcon
-                  className="lg:text-[#20C997] text-blue-500 lg:bg-[#212529] lg:p-3 lg:rounded-md"
-                  fontSize="large"
-                  sx={{ fontSize: "8vh" }}
-                />
-                <div className="flex flex-col items-center lg:items-start">
-                  <Typography variant="h6" className="text-white">
-                    Site Maintenance
-                  </Typography>
-                  <p className="ml-4 text-white mr-4 flex justify-center lg:justify-start">
-                    monitoring, updating, and improving website to ensure it
-                    performs efficiently, remains secure, and meets user needs.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-    </AnimatedPage>
+      </section>
+    </main>
   );
 }
 
