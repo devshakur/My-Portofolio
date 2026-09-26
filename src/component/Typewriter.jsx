@@ -1,12 +1,13 @@
 import { Typography } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+
+const keywords = [
+  "Frontend Developer...",
+  "Web Designer...",
+  "Enterprise Software Dev.",
+];
 
 const Typewriter = () => {
-  const keywords = [
-    "Frontend Developer...",
-    "Web Designer...",
-    "Enterprise Software Dev.",
-  ];
   const [index, setIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
@@ -26,7 +27,7 @@ const Typewriter = () => {
           let letterIndex = displayedText.length;
           let nextLetterDelay = letterIndex < word.length ? 200 : 300;
           setTimeout(() => {
-            setDisplayedText((prev) => word.slice(0, letterIndex + 1));
+            setDisplayedText(word.slice(0, letterIndex + 1));
           }, nextLetterDelay); // Delay before typing next letter or clearing the word
         }
       } else {

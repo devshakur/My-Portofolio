@@ -1,9 +1,6 @@
-import React from "react";
 import AnimatedPage from "./AnimatedPage";
 import { Typography } from "@mui/material";
 import ContactMailOutlinedIcon from "@mui/icons-material/ContactMailOutlined";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import mock1 from "../assest/images/uba-mockup.jpg";
 import profileMock from "../assest/images/portfolio-mockup.jpg";

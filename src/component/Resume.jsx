@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import ContactMailOutlinedIcon from "@mui/icons-material/ContactMailOutlined";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";

@@ -1,17 +1,14 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { Typography } from "@mui/material";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import LaptopMacOutlinedIcon from "@mui/icons-material/LaptopMacOutlined";
 import Button from "@mui/material/Button";
-import ContactMailOutlinedIcon from "@mui/icons-material/ContactMailOutlined";
 import LaptopWindowsOutlinedIcon from "@mui/icons-material/LaptopWindowsOutlined";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import DevicesOutlinedIcon from "@mui/icons-material/DevicesOutlined";
-import amberImg from "../assest/images/ampersand.png";
 import EngineeringOutlinedIcon from "@mui/icons-material/EngineeringOutlined";
 import "../styles/public.css";
 import AnimatedPage from "./AnimatedPage";
-import Resume from "./Resume";
 
 function Intro() {
   const [changeVariant, setchangeVariant] = useState("contained");
@@ -89,7 +86,7 @@ function Intro() {
               <br />I continuously stay updated on the latest trends and
               technologies in web development to ensure that the websites I
               create are modern, accessible, and optimized for search engines.
-              My goal is to bring my clients' visions to life on the web while
+              My goal is to bring my clients&apos; visions to life on the web while
               prioritizing usability, scalability, performance, and a visually
               appealing design.
             </p>

@@ -1,8 +1,7 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { Typography } from "@mui/material";
 import emailjs from "@emailjs/browser";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -46,8 +45,8 @@ function Contact() {
           notify();
           console.log("succes");
         },
-        (error) => {
-          console.log("error");
+        (sendError) => {
+          console.log(sendError);
         }
       );
   };
@@ -70,7 +69,7 @@ function Contact() {
         </div>
         <div className="flex justify-center p-5">
           <h2 className="border-b-2 border-[#057496] p-1 text-2xl text-[#fff] md:text-[2rem]">
-            LET'S TALK
+            {"LET'S TALK"}
           </h2>
         </div>
         <div className="lg:flex lg:mx-12">
@@ -100,7 +99,6 @@ function Contact() {
                 required
                 name="to_email"
                 placeholder="Email"
-                variant="outlined"
               />
 
               <textarea

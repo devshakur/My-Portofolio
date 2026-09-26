@@ -1,5 +1,4 @@
-const colors = require("tailwindcss/colors");
-const { grey } = require("@mui/material/colors");
+import { grey } from "@mui/material/colors";
 
 /** @type {import('tailwindcss').Config} */
 export default {
