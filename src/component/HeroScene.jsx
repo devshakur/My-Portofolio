@@ -50,6 +50,12 @@ const BRAND = {
   CSS3: "#1572B6",
   "Responsive Design": "#3DFF8A",
   WCAG: "#3DFF8A",
+  "Design System": "#C4B5FD",
+  "Performance Engineering": "#FBBF24",
+  "Api $ State Management": "#34D399",
+  "Accessibility (WCAG 2.1)": "#3DFF8A",
+  "Testing & Quality": "#38BDF8",
+  "Scalable UI Systems": "#FB7185",
 };
 
 function drawReact(ctx) {
@@ -180,6 +186,90 @@ function drawWcag(ctx) {
   ctx.restore();
 }
 
+function drawDesignSystem(ctx) {
+  ctx.save();
+  ctx.translate(256, 250);
+  ctx.strokeStyle = BRAND["Design System"];
+  ctx.lineWidth = 10;
+  [[-90, -90], [10, -90], [-90, 10], [10, 10]].forEach(([x, y]) => {
+    roundRect(ctx, x, y, 80, 80, 16);
+    ctx.stroke();
+  });
+  ctx.restore();
+}
+
+function drawPerformance(ctx) {
+  ctx.save();
+  ctx.translate(256, 270);
+  ctx.strokeStyle = BRAND["Performance Engineering"];
+  ctx.fillStyle = BRAND["Performance Engineering"];
+  ctx.lineWidth = 14;
+  ctx.lineCap = "round";
+  ctx.beginPath();
+  ctx.arc(0, 0, 100, Math.PI, 0);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(62, -48);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, 10, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawApiState(ctx) {
+  ctx.save();
+  ctx.translate(256, 250);
+  ctx.strokeStyle = BRAND["Api $ State Management"];
+  ctx.fillStyle = BRAND["Api $ State Management"];
+  ctx.lineWidth = 10;
+  [[-80, 20], [0, -70], [80, 20]].forEach(([x, y]) => {
+    ctx.beginPath();
+    ctx.arc(x, y, 28, 0, Math.PI * 2);
+    ctx.fill();
+  });
+  ctx.beginPath();
+  ctx.moveTo(-58, 8);
+  ctx.lineTo(-16, -48);
+  ctx.moveTo(16, -48);
+  ctx.lineTo(58, 8);
+  ctx.moveTo(-52, 20);
+  ctx.lineTo(52, 20);
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawTesting(ctx) {
+  ctx.save();
+  ctx.translate(256, 250);
+  ctx.strokeStyle = BRAND["Testing & Quality"];
+  ctx.lineWidth = 14;
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  ctx.beginPath();
+  ctx.arc(0, 0, 100, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(-46, 4);
+  ctx.lineTo(-12, 40);
+  ctx.lineTo(52, -36);
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawScalableUi(ctx) {
+  ctx.save();
+  ctx.translate(256, 270);
+  ctx.strokeStyle = BRAND["Scalable UI Systems"];
+  ctx.lineWidth = 10;
+  [40, 0, -40].forEach((offset, index) => {
+    roundRect(ctx, -90 + index * 18, offset - 36, 150, 56, 14);
+    ctx.stroke();
+  });
+  ctx.restore();
+}
+
 const DRAW_ICON = {
   React: drawReact,
   "Next.js": drawNext,
@@ -190,6 +280,12 @@ const DRAW_ICON = {
   CSS3: (ctx) => drawShield(ctx, BRAND.CSS3, "3"),
   "Responsive Design": drawResponsive,
   WCAG: drawWcag,
+  "Design System": drawDesignSystem,
+  "Performance Engineering": drawPerformance,
+  "Api $ State Management": drawApiState,
+  "Accessibility (WCAG 2.1)": drawWcag,
+  "Testing & Quality": drawTesting,
+  "Scalable UI Systems": drawScalableUi,
 };
 
 function createCardTexture(tech) {
@@ -271,7 +367,10 @@ function HeroSnow() {
         if (flake.x > 1.05) flake.x = -0.05;
 
         context.beginPath();
-        context.fillStyle = `rgba(255,255,255,${flake.opacity})`;
+        const light = document.documentElement.dataset.theme === "light";
+        context.fillStyle = light
+          ? `rgba(18,20,23,${flake.opacity * 0.45})`
+          : `rgba(255,255,255,${flake.opacity})`;
         context.arc(flake.x * width, flake.y * height, flake.radius, 0, Math.PI * 2);
         context.fill();
       });
@@ -381,6 +480,7 @@ function Hand({ side, motion }) {
 
 function Scene({ onActiveChange }) {
   const camera = useThree((state) => state.camera);
+  const sceneRef = useRef();
   const handsRef = useRef();
   const cardRefs = useRef([]);
   const motion = useRef({ handShift: 0, indexFloat: 0 });
@@ -398,12 +498,22 @@ function Scene({ onActiveChange }) {
     [textures]
   );
 
-  useFrame(({ clock }) => {
+  useFrame(({ clock, size }) => {
+    const aspect = size.width / Math.max(size.height, 1);
+    const portrait = aspect < 1;
     const vFov = (camera.fov * Math.PI) / 180;
     const tan = Math.tan(vFov / 2);
-    const fitZ = Math.max(3.8 / (2 * tan), 3.4 / (2 * tan * Math.max(camera.aspect, 0.45)));
-    camera.position.z = fitZ;
-    camera.position.x = 0;
+    const span = portrait ? 2.7 : 3.6;
+    const fitZ = Math.max(2.8 / (2 * tan), span / (2 * tan * aspect));
+    const lookY = portrait ? -0.05 : 0;
+    camera.position.set(0, lookY, fitZ);
+    camera.lookAt(0, lookY, 0);
+    camera.updateProjectionMatrix();
+    if (sceneRef.current) {
+      const scale = portrait ? Math.min(1, aspect / 0.72) : 1;
+      sceneRef.current.scale.setScalar(Math.max(scale, 0.78));
+      sceneRef.current.position.set(0, 0, 0);
+    }
 
     const { indexFloat, handShift } = scrollMotion(clock.elapsedTime);
     motion.current.handShift = handShift;
@@ -452,7 +562,7 @@ function Scene({ onActiveChange }) {
         color="#fff1e4"
       />
 
-      <group position={[0, 0, 0]}>
+      <group ref={sceneRef} position={[0, 0, 0]}>
         {textures.map((texture, i) => (
           <mesh
             key={TECH_STACK[i].name}
@@ -482,10 +592,10 @@ function Scene({ onActiveChange }) {
 function HeroScene({ onActiveChange }) {
   return (
     <Canvas
-      camera={{ position: [0.15, 0.15, 6.6], fov: 34 }}
+      camera={{ position: [0, 0, 6.6], fov: 34 }}
       dpr={[1, 1.75]}
       gl={{ alpha: true, antialias: true }}
-      style={{ background: "transparent" }}
+      style={{ width: "100%", height: "100%", display: "block", background: "transparent" }}
       onCreated={({ gl }) => {
         gl.setClearColor(0x000000, 0);
       }}

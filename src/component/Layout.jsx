@@ -5,7 +5,7 @@ import Navigation from "./Navigation";
 function Layout({ children }) {
   return (
     <CssBaseline>
-      <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column", bgcolor: "#070b12" }}>
+      <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column", bgcolor: "var(--canvas)", color: "var(--ink)" }}>
         <Navigation />
 
         <div className="flex-1 overflow-x-clip">{children}</div>

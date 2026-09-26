@@ -1,3 +1,133 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --canvas: #070b12;
+  --card: #101820;
+  --ink: #f4f7f5;
+  --muted: rgba(244, 247, 245, 0.72);
+  --line: rgba(255, 255, 255, 0.12);
+  --chip: rgba(255, 255, 255, 0.05);
+  --accent: #3dff8a;
+  --label: #34d399;
+  --badge-ink: #062014;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --canvas: #f6f7f4;
+  --card: #ffffff;
+  --ink: #121417;
+  --muted: rgba(18, 20, 23, 0.72);
+  --line: rgba(18, 20, 23, 0.14);
+  --chip: rgba(18, 20, 23, 0.05);
+  --accent: #0a6e3c;
+  --label: #0a6e3c;
+  --badge-ink: #ffffff;
+}
+
+body {
+  background-color: var(--canvas);
+  color: var(--ink);
+}
+
+.theme-wash {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  pointer-events: none;
+  background: var(--wash-color);
+  clip-path: circle(0px at var(--wash-x) var(--wash-y));
+  animation: theme-wash 680ms cubic-bezier(0.22, 0.82, 0.28, 1) forwards;
+}
+
+@keyframes theme-wash {
+  from {
+    clip-path: circle(0px at var(--wash-x) var(--wash-y));
+  }
+  to {
+    clip-path: circle(48vmax at var(--wash-x) var(--wash-y));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-wash {
+    animation: none;
+  }
+}
+
+html[data-theme="light"] .bg-\[\#070b12\] {
+  background-color: var(--canvas);
+}
+
+html[data-theme="light"] .bg-\[\#101820\],
+html[data-theme="light"] .bg-\[\#141414\]\/95 {
+  background-color: var(--card);
+}
+
+@media (min-width: 1024px) {
+  html[data-theme="light"] header.bg-\[\#141414\]\/95 {
+    background-color: rgba(246, 247, 244, 0.72);
+  }
+}
+
+html[data-theme="light"] .text-white {
+  color: var(--ink);
+}
+
+html[data-theme="light"] .text-white\/35,
+html[data-theme="light"] .text-white\/40,
+html[data-theme="light"] .text-white\/45,
+html[data-theme="light"] .text-white\/50,
+html[data-theme="light"] .text-white\/55,
+html[data-theme="light"] .text-white\/60,
+html[data-theme="light"] .text-white\/70,
+html[data-theme="light"] .text-white\/75,
+html[data-theme="light"] .text-white\/80 {
+  color: var(--muted);
+}
+
+html[data-theme="light"] .hover\:text-white:hover,
+html[data-theme="light"] .hover\:text-white\/90:hover,
+html[data-theme="light"] .group:hover .group-hover\:text-white {
+  color: var(--ink);
+}
+
+html[data-theme="light"] .text-emerald-400,
+html[data-theme="light"] .text-emerald-500\/90,
+html[data-theme="light"] .hover\:text-emerald-400:hover {
+  color: var(--label);
+}
+
+html[data-theme="light"] .border-white\/10,
+html[data-theme="light"] .border-white\/15,
+html[data-theme="light"] .border-white\/\[0\.06\],
+html[data-theme="light"] .hover\:border-white\/20:hover,
+html[data-theme="light"] .hover\:border-white\/25:hover,
+html[data-theme="light"] .hover\:border-white\/30:hover,
+html[data-theme="light"] .group:hover .group-hover\:border-white\/20 {
+  border-color: var(--line);
+}
+
+html[data-theme="light"] .bg-white\/5,
+html[data-theme="light"] .bg-white\/10,
+html[data-theme="light"] .bg-white\/\[0\.03\],
+html[data-theme="light"] .bg-white\/\[0\.04\],
+html[data-theme="light"] .bg-white\/\[0\.06\],
+html[data-theme="light"] .hover\:bg-white\/5:hover,
+html[data-theme="light"] .hover\:bg-white\/10:hover,
+html[data-theme="light"] .hover\:bg-white\/\[0\.08\]:hover {
+  background-color: var(--chip);
+}
+
+html[data-theme="light"] .ring-\[\#070b12\] {
+  --tw-ring-color: var(--canvas);
+}
+
+html[data-theme="light"] .theme-drawer {
+  background-image: none;
+  background-color: #ffffff;
+  box-shadow: 0 24px 60px rgba(18, 20, 23, 0.16);
+}

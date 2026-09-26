@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import profilePics from "../assest/images/mypics.jpeg";
+import profilePics from "../assest/images/mypic.png";
 import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import CloseIcon from "@mui/icons-material/Close";
@@ -15,10 +15,10 @@ import { NAV_LINKS } from "./navLinks";
 
 const NAV_ICONS = {
   "/": HomeOutlinedIcon,
-  "/intro": PersonOutlineIcon,
-  "/portfolio": WorkOutlineIcon,
-  "/resume": DescriptionOutlinedIcon,
-  "/contact": MailOutlineIcon,
+  "/#about": PersonOutlineIcon,
+  "/#projects": WorkOutlineIcon,
+  "/#experience": DescriptionOutlinedIcon,
+  "/#contact": MailOutlineIcon,
 };
 
 const SOCIAL_LINKS = [
@@ -34,13 +34,13 @@ const SOCIAL_LINKS = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com",
+    href: "https://www.linkedin.com/in/shakiru-abdulshakur-dauda-200223343",
     Icon: LinkedInIcon,
   },
 ];
 
 function Sidenav({ open, onClose }) {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
     if (!open) return;
@@ -59,8 +59,11 @@ function Sidenav({ open, onClose }) {
     };
   }, [open, onClose]);
 
-  const isActive = (to) =>
-    to === "/" ? pathname === "/" : pathname.startsWith(to);
+  const isActive = (to) => {
+    if (to.startsWith("/#")) return pathname === "/" && hash === to.slice(1);
+    if (to === "/") return pathname === "/" && hash === "";
+    return pathname === to;
+  };
 
   return (
     <AnimatePresence>
@@ -78,10 +81,10 @@ function Sidenav({ open, onClose }) {
           />
 
           <motion.aside
-            className="absolute top-0 right-0 flex h-full w-full max-w-md flex-col bg-gradient-to-b from-[#141414] via-[#1c1c1c] to-[#0d0d0d] shadow-2xl shadow-black/50"
-            initial={{ x: "100%" }}
+            className="theme-drawer absolute top-0 left-0 flex h-full w-full max-w-md flex-col bg-gradient-to-b from-[#141414] via-[#1c1c1c] to-[#0d0d0d] shadow-2xl shadow-black/50"
+            initial={{ x: "-100%" }}
             animate={{ x: 0 }}
-            exit={{ x: "100%" }}
+            exit={{ x: "-100%" }}
             transition={{ type: "spring", damping: 32, stiffness: 340 }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -116,12 +119,12 @@ function Sidenav({ open, onClose }) {
             <nav className="flex-1 overflow-y-auto px-3 py-4">
               <ul className="flex flex-col gap-1">
                 {NAV_LINKS.map(({ to, label }, index) => {
-                  const Icon = NAV_ICONS[to];
+                  const Icon = NAV_ICONS[to] || HomeOutlinedIcon;
                   const active = isActive(to);
                   return (
                     <motion.li
                       key={to}
-                      initial={{ opacity: 0, x: 24 }}
+                      initial={{ opacity: 0, x: -24 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.05 + index * 0.05 }}
                     >
