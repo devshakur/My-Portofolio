@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import LinkIcon from "@mui/icons-material/Link";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
@@ -13,22 +14,25 @@ import { CV_FILENAME, CV_HREF, NAV_LINKS } from "./navLinks";
 
 const PROJECTS = [
   {
-    name: "Agrisync",
-    description: "An agriculture platform connecting farmers with buyers and drivers.",
-    image: agrisync,
-    tags: ["Next.js", "TypeScript", "Tailwind"],
+    name: "Venpay",
+    description: "A fintech platform for international money transfers and cross-border payments.",
+    image: venpay,
+    tags: ["Next.js", "TanStack Query", "GraphQL"],
+    link: "https://venpay.ai/",
   },
   {
     name: "TakeNote",
     description: "A modern notetaking app with real-time sync and cloud storage.",
     image: takenote,
     tags: ["React", "Node.js", "PostgreSQL"],
+    link: "https://takenote-phi.vercel.app/",
   },
   {
-    name: "Venpay",
-    description: "A fintech platform for international money transfers and cross-border payments.",
-    image: venpay,
-    tags: ["Next.js", "TanStack Query", "GraphQL"],
+    name: "Agrisync",
+    description: "An agriculture platform connecting farmers with buyers and drivers.",
+    image: agrisync,
+    tags: ["Next.js", "TypeScript", "Tailwind"],
+    link: "https://agri-sync-alpha.vercel.app/",
   },
 ];
 
@@ -115,15 +119,31 @@ function PageSections() {
             {PROJECTS.map((project) => (
               <li
                 key={project.name}
-                className="overflow-hidden rounded-2xl border border-white/10 bg-[#101820]"
+                className="group overflow-hidden rounded-2xl border border-white/10 bg-[#101820] transition hover:border-white/20"
               >
-                <img
-                  src={project.image}
-                  alt=""
-                  className="h-44 w-full object-cover object-top"
-                />
+                <div className="relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="h-44 w-full object-cover object-top transition duration-300 group-hover:scale-105"
+                  />
+                </div>
                 <div className="p-5">
-                  <h3 className="text-lg font-semibold">{project.name}</h3>
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="text-lg font-semibold text-white">{project.name}</h3>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Visit ${project.name} live site`}
+                        title="Live Site"
+                        className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition hover:border-emerald-400/50 hover:bg-emerald-400/10 hover:text-emerald-400"
+                      >
+                        <LinkIcon sx={{ fontSize: 18 }} />
+                      </a>
+                    )}
+                  </div>
                   <p className="mt-2 text-sm leading-relaxed text-white/50">{project.description}</p>
                   <ul className="mt-4 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
